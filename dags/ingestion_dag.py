@@ -36,22 +36,26 @@ def ingestion_dag():
             else:
                 raise
 
-        for d in data: #get session_key that corresponds to meeting_key, this will be our PK for the rest of the tabels
+        result = {}
+        for d in data:
             if d["session_type"] == "Race":
-                return {
-                    "session_key": d["session_key"],
-                    "meeting_key": d["meeting_key"]
-                }
+                result["race_session_key"] = d["session_key"]
+                result["race_meeting_key"] = d["meeting_key"]
+            elif d["session_type"] == "Qualifying":
+                result["qualifying_session_key"] = d["session_key"]
+                result["qualifying_meeting_key"] = d["meeting_key"]
 
+        return result
+            
     @task(retries=3, retry_delay=timedelta(seconds=30))
     def fetch_drivers(keys):
 
         #unpack keys
-        meeting_key = keys["meeting_key"]
-        session_key = keys["session_key"]
+        race_meeting_key = keys["race_meeting_key"]
+        race_session_key = keys["race_session_key"]
 
         try:
-            response = urlopen(f"https://api.openf1.org/v1/drivers?session_key={session_key}")
+            response = urlopen(f"https://api.openf1.org/v1/drivers?session_key={race_session_key}")
             data = json.loads(response.read().decode('utf-8'))
         except HTTPError as e:
             if e.code == 429:
@@ -68,6 +72,7 @@ def ingestion_dag():
             drivers = {
                 "driver_number": d["driver_number"],
                 "full_name": d["full_name"],
+                "name_acronym": d["name_acronym"],
                 "team_name": d["team_name"],
                 "team_colour": d["team_colour"],
                 "headshot_url": d["headshot_url"],
@@ -79,7 +84,7 @@ def ingestion_dag():
         #upload to GCS
         storage_client = storage.Client()
         bucket = storage_client.bucket("openf1-pipeline-raw")
-        blob = bucket.blob(f"raw/meetings={meeting_key}/session={session_key}/drivers.json")
+        blob = bucket.blob(f"raw/meetings={race_meeting_key}/session={race_session_key}/drivers.json")
         blob.upload_from_string(
             "\n".join(json.dumps(record) for record in driver_info),
             content_type="application/json"
@@ -89,10 +94,21 @@ def ingestion_dag():
         job_config = bigquery.LoadJobConfig(
             source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
             schema=drivers_schema,
-            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE
+            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+            range_partitioning=bigquery.RangePartitioning(
+                field="meeting_key",
+                range_=bigquery.PartitionRange(start=1000, end=2000, interval=1)
+            ),
+            schema_update_options=[
+                bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION
+            ]
         )
-        uri = f"gs://openf1-pipeline-raw/raw/meetings={meeting_key}/session={session_key}/drivers.json"
-        load_job = bq_client.load_table_from_uri(uri, "openf1-pipeline.raw.drivers", job_config=job_config)
+        uri = f"gs://openf1-pipeline-raw/raw/meetings={race_meeting_key}/session={race_session_key}/drivers.json"
+        load_job = bq_client.load_table_from_uri(
+            uri, 
+            f"openf1-pipeline.raw.drivers${race_meeting_key}",
+            job_config=job_config
+        )
         load_job.result()
 
         return [d["driver_number"] for d in driver_info]
@@ -102,11 +118,11 @@ def ingestion_dag():
     def fetch_laps(keys):
 
         #unpack keys
-        meeting_key = keys["meeting_key"]
-        session_key = keys["session_key"]
+        race_meeting_key = keys["race_meeting_key"]
+        race_session_key = keys["race_session_key"]
 
         try:
-            response = urlopen(f"https://api.openf1.org/v1/laps?session_key={session_key}")
+            response = urlopen(f"https://api.openf1.org/v1/laps?session_key={race_session_key}")
             data = json.loads(response.read().decode('utf-8'))
         except HTTPError as e:
             if e.code == 429:
@@ -137,7 +153,7 @@ def ingestion_dag():
         #upload to GCS
         storage_client = storage.Client()
         bucket = storage_client.bucket("openf1-pipeline-raw")
-        blob = bucket.blob(f"raw/meetings={meeting_key}/session={session_key}/laps.json")
+        blob = bucket.blob(f"raw/meetings={race_meeting_key}/session={race_session_key}/laps.json")
         blob.upload_from_string(
             "\n".join(json.dumps(record) for record in laps_info),
             content_type="application/json"
@@ -147,10 +163,21 @@ def ingestion_dag():
         job_config = bigquery.LoadJobConfig(
             source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
             schema=laps_schema,
-            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE
+            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+            range_partitioning=bigquery.RangePartitioning(
+                field="meeting_key",
+                range_=bigquery.PartitionRange(start=1000, end=2000, interval=1)
+            ),
+            schema_update_options=[
+                bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION
+            ]
         )
-        uri = f"gs://openf1-pipeline-raw/raw/meetings={meeting_key}/session={session_key}/laps.json"
-        load_job = bq_client.load_table_from_uri(uri, "openf1-pipeline.raw.laps", job_config=job_config)
+        uri = f"gs://openf1-pipeline-raw/raw/meetings={race_meeting_key}/session={race_session_key}/laps.json"
+        load_job = bq_client.load_table_from_uri(
+            uri, 
+            f"openf1-pipeline.raw.laps${race_meeting_key}",
+            job_config=job_config
+        )
         load_job.result()
 
 
@@ -159,14 +186,14 @@ def ingestion_dag():
     def fetch_location(keys, driver_numbers):
 
         #unpack keys
-        meeting_key = keys["meeting_key"]
-        session_key = keys["session_key"]
+        race_meeting_key = keys["race_meeting_key"]
+        race_session_key = keys["race_session_key"]
 
         # then loop through each driver
         location_info = []
         for driver_number in driver_numbers:
             try:
-                response = urlopen(f"https://api.openf1.org/v1/location?session_key={session_key}&driver_number={driver_number}")
+                response = urlopen(f"https://api.openf1.org/v1/location?session_key={race_session_key}&driver_number={driver_number}")
                 data = json.loads(response.read().decode('utf-8'))
             except HTTPError as e:
                 if e.code == 429:
@@ -193,7 +220,7 @@ def ingestion_dag():
         #upload to GCS
         storage_client = storage.Client()
         bucket = storage_client.bucket("openf1-pipeline-raw")
-        blob = bucket.blob(f"raw/meetings={meeting_key}/session={session_key}/location.json")
+        blob = bucket.blob(f"raw/meetings={race_meeting_key}/session={race_session_key}/location.json")
         blob.upload_from_string(
             "\n".join(json.dumps(record) for record in location_info),
             content_type="application/json"
@@ -203,10 +230,21 @@ def ingestion_dag():
         job_config = bigquery.LoadJobConfig(
             source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
             schema=location_schema,
-            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE
+            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+            range_partitioning=bigquery.RangePartitioning(
+                field="meeting_key",
+                range_=bigquery.PartitionRange(start=1000, end=2000, interval=1)
+            ),
+            schema_update_options=[
+                bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION
+            ]
         )
-        uri = f"gs://openf1-pipeline-raw/raw/meetings={meeting_key}/session={session_key}/location.json"
-        load_job = bq_client.load_table_from_uri(uri, "openf1-pipeline.raw.location", job_config=job_config)
+        uri = f"gs://openf1-pipeline-raw/raw/meetings={race_meeting_key}/session={race_session_key}/location.json"
+        load_job = bq_client.load_table_from_uri(
+            uri, 
+            f"openf1-pipeline.raw.location${race_meeting_key}",
+            job_config=job_config
+        )
         load_job.result()
 
     
@@ -214,11 +252,14 @@ def ingestion_dag():
     def fetch_starting_grid(keys):
 
         #unpack keys
-        meeting_key = keys["meeting_key"]
-        session_key = keys["session_key"]
+        qualifying_meeting_key = keys["qualifying_meeting_key"]
+        qualifying_session_key = keys["qualifying_session_key"]
+        race_session_key = keys["race_session_key"]
+        race_meeting_key = keys["race_meeting_key"]
+
 
         try:
-            response = urlopen(f"https://api.openf1.org/v1/starting_grid?session_key={session_key}")
+            response = urlopen(f"https://api.openf1.org/v1/starting_grid?session_key={qualifying_session_key}")
             data = json.loads(response.read().decode('utf-8'))
         except HTTPError as e:
             if e.code == 429:
@@ -237,27 +278,38 @@ def ingestion_dag():
                 "position": d["position"],
                 "lap_duration": d["lap_duration"],
                 "session_key": d["session_key"],
-                "meeting_key": d["meeting_key"]
+                "meeting_key": d["meeting_key"],
             }
             starting_grid_info.append(starting_grid)
 
         #upload to GCS
         storage_client = storage.Client()
         bucket = storage_client.bucket("openf1-pipeline-raw")
-        blob = bucket.blob(f"raw/meetings={meeting_key}/session={session_key}/starting_grid.json")
+        blob = bucket.blob(f"raw/meetings={race_meeting_key}/session={race_session_key}/starting_grid.json")
         blob.upload_from_string(
             "\n".join(json.dumps(record) for record in starting_grid_info),
             content_type="application/json"
         )
-
+        
         bq_client = bigquery.Client(project="openf1-pipeline")
         job_config = bigquery.LoadJobConfig(
             source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
             schema=starting_grid_schema,
-            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE
+            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+            range_partitioning=bigquery.RangePartitioning(
+                field="meeting_key",
+                range_=bigquery.PartitionRange(start=1000, end=2000, interval=1)
+            ),
+            schema_update_options=[
+                bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION
+            ]
         )
-        uri = f"gs://openf1-pipeline-raw/raw/meetings={meeting_key}/session={session_key}/starting_grid.json"
-        load_job = bq_client.load_table_from_uri(uri, "openf1-pipeline.raw.starting_grid", job_config=job_config)
+        uri = f"gs://openf1-pipeline-raw/raw/meetings={race_meeting_key}/session={race_session_key}/starting_grid.json"
+        load_job = bq_client.load_table_from_uri(
+            uri, 
+            f"openf1-pipeline.raw.starting_grid${race_meeting_key}",
+            job_config=job_config
+        )
         load_job.result()
 
 

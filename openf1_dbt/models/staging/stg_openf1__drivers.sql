@@ -5,6 +5,7 @@ SELECT
     team_colour,
     headshot_url,
     session_key,
-    meeting_key
+    meeting_key,
+    name_acronym
 FROM
     {{ source('openf1_raw', 'drivers') }}

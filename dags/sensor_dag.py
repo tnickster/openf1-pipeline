@@ -31,6 +31,7 @@ def race_weekend_sensor():
 
     meeting_key = check_race_date()
 
+    
     trigger = TriggerDagRunOperator(
         task_id="trigger_ingestion",
         trigger_dag_id="ingestion_dag",

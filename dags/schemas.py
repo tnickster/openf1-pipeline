@@ -8,6 +8,7 @@ bigquery.SchemaField("team_colour", "STRING"),
 bigquery.SchemaField("headshot_url", "STRING"),
 bigquery.SchemaField("session_key", "INTEGER"),
 bigquery.SchemaField("meeting_key", "INTEGER"),
+bigquery.SchemaField("name_acronym", "STRING")
 ]
 location_schema = [
 bigquery.SchemaField("date", "TIMESTAMP"),
