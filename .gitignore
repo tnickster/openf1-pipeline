@@ -2,4 +2,4 @@
 logs/
 keys/
 config/
-.dbt_docker/
+venv/
