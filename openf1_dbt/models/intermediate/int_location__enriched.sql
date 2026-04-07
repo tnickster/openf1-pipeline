@@ -18,6 +18,7 @@ location_enriched AS (
     SELECT
         location.*,
         drivers.full_name,
+        drivers.name_acronym,
         drivers.team_name,
         drivers.team_colour,
         drivers.headshot_url
