@@ -1,5 +1,6 @@
-dbt_packages/
-dbt_internal_packages/
-logs/
-target/
 .env
+logs/
+keys/
+config/
+venv/
+__pycache__/

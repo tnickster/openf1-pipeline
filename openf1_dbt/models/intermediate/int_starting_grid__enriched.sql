@@ -21,4 +21,6 @@ SELECT
     drivers.team_colour
 FROM
     starting_grid
-    LEFT JOIN drivers ON drivers.driver_number = starting_grid.driver_number AND drivers.session_key = starting_grid.session_key AND drivers.meeting_key = starting_grid.meeting_key
+    LEFT JOIN drivers 
+    ON drivers.driver_number = starting_grid.driver_number 
+    AND drivers.meeting_key = starting_grid.meeting_key

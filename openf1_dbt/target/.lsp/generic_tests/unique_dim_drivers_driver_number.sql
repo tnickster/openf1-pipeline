@@ -1,0 +1,1 @@
+{{ test_unique(column_name="driver_number", model=get_where_subquery(ref('dim_drivers'))) }}

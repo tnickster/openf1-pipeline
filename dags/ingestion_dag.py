@@ -5,7 +5,7 @@ from datetime import datetime, timezone, timedelta
 from urllib.request import urlopen
 import time
 from urllib.error import HTTPError
-from schemas import drivers_schema, location_schema, laps_schema, starting_grid_schema
+from schemas import drivers_schema, location_schema, laps_schema, starting_grid_schema, meetings_schema, sessions_schema, car_data_schema
 
 
 @dag(
@@ -15,6 +15,7 @@ from schemas import drivers_schema, location_schema, laps_schema, starting_grid_
 )
 
 def ingestion_dag():
+
 
     @task(retries=3, retry_delay=timedelta(seconds=30))
     def fetch_sessions():
@@ -46,6 +47,183 @@ def ingestion_dag():
                 result["qualifying_meeting_key"] = d["meeting_key"]
 
         return result
+    
+    @task(retries=3, retry_delay=timedelta(seconds=30))
+    def fetch_meetings_data(keys):
+        race_meeting_key = keys["race_meeting_key"]
+        race_session_key = keys["race_session_key"]
+
+        try:
+            response = urlopen(f"https://api.openf1.org/v1/meetings?meeting_key={race_meeting_key}")
+            data = json.loads(response.read().decode('utf-8'))
+        except HTTPError as e:
+            if e.code == 429:
+                raise
+            elif e.code in (404, 422):
+                print(f"No data available: {e}")
+                return
+            else:
+                raise
+
+        meetings_info = []
+        for d in data:
+            meeting = {
+                "meeting_key": d["meeting_key"],
+                "meeting_name": d["meeting_name"],
+                "circuit_short_name": d["circuit_short_name"],
+                "country_name": d["country_name"],
+                "date_start": d["date_start"],
+                "date_end": d["date_end"],
+                "year": d["year"]
+            }
+            meetings_info.append(meeting)
+
+        storage_client = storage.Client()
+        bucket = storage_client.bucket("openf1-pipeline-raw")
+        blob = bucket.blob(f"raw/meetings={race_meeting_key}/session={race_session_key}/meetings.json")
+        blob.upload_from_string(
+            "\n".join(json.dumps(record) for record in meetings_info),
+            content_type="application/json"
+        )
+
+        bq_client = bigquery.Client(project="openf1-pipeline")
+        job_config = bigquery.LoadJobConfig(
+            source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
+            schema=meetings_schema,
+            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+            range_partitioning=bigquery.RangePartitioning(
+                field="meeting_key",
+                range_=bigquery.PartitionRange(start=1000, end=2000, interval=1)
+            ),
+            schema_update_options=[bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION]
+        )
+        uri = f"gs://openf1-pipeline-raw/raw/meetings={race_meeting_key}/session={race_session_key}/meetings.json"
+        load_job = bq_client.load_table_from_uri(
+            uri,
+            f"openf1-pipeline.raw.meetings${race_meeting_key}",
+            job_config=job_config
+        )
+        load_job.result()
+
+
+    @task(retries=3, retry_delay=timedelta(seconds=30))
+    def fetch_sessions_data(keys):
+        race_meeting_key = keys["race_meeting_key"]
+        race_session_key = keys["race_session_key"]
+
+        try:
+            response = urlopen(f"https://api.openf1.org/v1/sessions?meeting_key={race_meeting_key}")
+            data = json.loads(response.read().decode('utf-8'))
+        except HTTPError as e:
+            if e.code == 429:
+                raise
+            elif e.code in (404, 422):
+                print(f"No data available: {e}")
+                return
+            else:
+                raise
+
+        sessions_info = []
+        for d in data:
+            session = {
+                "session_key": d["session_key"],
+                "meeting_key": d["meeting_key"],
+                "session_name": d["session_name"],
+                "session_type": d["session_type"],
+                "date_start": d["date_start"],
+                "date_end": d["date_end"]
+            }
+            sessions_info.append(session)
+
+        storage_client = storage.Client()
+        bucket = storage_client.bucket("openf1-pipeline-raw")
+        blob = bucket.blob(f"raw/meetings={race_meeting_key}/session={race_session_key}/sessions.json")
+        blob.upload_from_string(
+            "\n".join(json.dumps(record) for record in sessions_info),
+            content_type="application/json"
+        )
+
+        bq_client = bigquery.Client(project="openf1-pipeline")
+        job_config = bigquery.LoadJobConfig(
+            source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
+            schema=sessions_schema,
+            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+            range_partitioning=bigquery.RangePartitioning(
+                field="meeting_key",
+                range_=bigquery.PartitionRange(start=1000, end=2000, interval=1)
+            ),
+            schema_update_options=[bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION]
+        )
+        uri = f"gs://openf1-pipeline-raw/raw/meetings={race_meeting_key}/session={race_session_key}/sessions.json"
+        load_job = bq_client.load_table_from_uri(
+            uri,
+            f"openf1-pipeline.raw.sessions${race_meeting_key}",
+            job_config=job_config
+        )
+        load_job.result()
+
+
+    @task(retries=3, retry_delay=timedelta(seconds=30))
+    def fetch_car_data(keys, driver_numbers):
+        race_meeting_key = keys["race_meeting_key"]
+        race_session_key = keys["race_session_key"]
+
+        car_info = []
+        for driver_number in driver_numbers:
+            try:
+                response = urlopen(f"https://api.openf1.org/v1/car_data?session_key={race_session_key}&driver_number={driver_number}")
+                data = json.loads(response.read().decode('utf-8'))
+            except HTTPError as e:
+                if e.code == 429:
+                    time.sleep(30)
+                    raise
+                elif e.code in (404, 422):
+                    print(f"No car data for driver {driver_number}: {e}")
+                    continue
+                else:
+                    raise
+            for d in data:
+                car = {
+                    "date": d["date"],
+                    "driver_number": d["driver_number"],
+                    "rpm": d["rpm"],
+                    "speed": d["speed"],
+                    "n_gear": d["n_gear"],
+                    "throttle": d["throttle"],
+                    "brake": d["brake"],
+                    "drs": d["drs"],
+                    "session_key": d["session_key"],
+                    "meeting_key": d["meeting_key"]
+                }
+                car_info.append(car)
+            time.sleep(1)
+
+        storage_client = storage.Client()
+        bucket = storage_client.bucket("openf1-pipeline-raw")
+        blob = bucket.blob(f"raw/meetings={race_meeting_key}/session={race_session_key}/car_data.json")
+        blob.upload_from_string(
+            "\n".join(json.dumps(record) for record in car_info),
+            content_type="application/json"
+        )
+
+        bq_client = bigquery.Client(project="openf1-pipeline")
+        job_config = bigquery.LoadJobConfig(
+            source_format=bigquery.SourceFormat.NEWLINE_DELIMITED_JSON,
+            schema=car_data_schema,
+            write_disposition=bigquery.WriteDisposition.WRITE_TRUNCATE,
+            range_partitioning=bigquery.RangePartitioning(
+                field="meeting_key",
+                range_=bigquery.PartitionRange(start=1000, end=2000, interval=1)
+            ),
+            schema_update_options=[bigquery.SchemaUpdateOption.ALLOW_FIELD_ADDITION]
+        )
+        uri = f"gs://openf1-pipeline-raw/raw/meetings={race_meeting_key}/session={race_session_key}/car_data.json"
+        load_job = bq_client.load_table_from_uri(
+            uri,
+            f"openf1-pipeline.raw.car_data${race_meeting_key}",
+            job_config=job_config
+        )
+        load_job.result()
             
     @task(retries=3, retry_delay=timedelta(seconds=30))
     def fetch_drivers(keys):
@@ -318,6 +496,9 @@ def ingestion_dag():
     fetch_laps(keys)
     fetch_location(keys, driver_numbers)
     fetch_starting_grid(keys)
+    fetch_meetings_data(keys)
+    fetch_sessions_data(keys)
+    fetch_car_data(keys, driver_numbers)
     
 
 ingestion_dag()

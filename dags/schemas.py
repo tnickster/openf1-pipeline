@@ -38,3 +38,32 @@ bigquery.SchemaField("lap_duration", "FLOAT64"),
 bigquery.SchemaField("session_key", "INTEGER"),
 bigquery.SchemaField("meeting_key", "INTEGER"),
 ]
+meetings_schema = [
+    bigquery.SchemaField("meeting_key", "INTEGER"),
+    bigquery.SchemaField("meeting_name", "STRING"),
+    bigquery.SchemaField("circuit_short_name", "STRING"),
+    bigquery.SchemaField("country_name", "STRING"),
+    bigquery.SchemaField("date_start", "TIMESTAMP"),
+    bigquery.SchemaField("date_end", "TIMESTAMP"),
+    bigquery.SchemaField("year", "INTEGER")
+]
+sessions_schema = [
+    bigquery.SchemaField("session_key", "INTEGER"),
+    bigquery.SchemaField("meeting_key", "INTEGER"),
+    bigquery.SchemaField("session_name", "STRING"),
+    bigquery.SchemaField("session_type", "STRING"),
+    bigquery.SchemaField("date_start", "TIMESTAMP"),
+    bigquery.SchemaField("date_end", "TIMESTAMP")
+]
+car_data_schema = [
+    bigquery.SchemaField("date", "TIMESTAMP"),
+    bigquery.SchemaField("driver_number", "INTEGER"),
+    bigquery.SchemaField("rpm", "INTEGER"),
+    bigquery.SchemaField("speed", "INTEGER"),
+    bigquery.SchemaField("n_gear", "INTEGER"),
+    bigquery.SchemaField("throttle", "INTEGER"),
+    bigquery.SchemaField("brake", "INTEGER"),
+    bigquery.SchemaField("drs", "INTEGER"),
+    bigquery.SchemaField("session_key", "INTEGER"),
+    bigquery.SchemaField("meeting_key", "INTEGER")
+]
