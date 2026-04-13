@@ -10,7 +10,7 @@ An end-to-end data engineering pipeline that ingests live F1 telemetry from the 
 │                                                                 │
 │   calendar_dag          race_weekend_sensor     ingestion_dag   │
 │   (monthly)        ──►  (daily sensor)     ──►  (triggered)    │
-│   Fetch F1 calendar     Checks if race          Fetch 7 API    │
+│   Fetch F1 calendar     Checks if race          Fetch 8 API    │
 │   Store to GCS          weekend ended           endpoints       │
 └────────────────────────────────┬────────────────────────────────┘
                                  │
@@ -66,7 +66,7 @@ Three Airflow DAGs handle the full ingestion lifecycle.
 
 `race_weekend_sensor` runs daily. It reads the calendar from GCS and checks whether yesterday's date matches any race `date_end`. If it does, it triggers the ingestion DAG with the corresponding `meeting_key` via `TriggerDagRunOperator`. No manual intervention required after a race weekend.
 
-`ingestion_dag` is triggered with a `meeting_key`. It fetches seven OpenF1 endpoints in parallel: sessions, drivers, laps, location, starting_grid, meetings, and car_data. Each endpoint is uploaded to GCS as newline-delimited JSON and loaded into BigQuery raw tables using `WRITE_TRUNCATE` scoped to the partition, so re-running a race overwrites only that race's data.
+`ingestion_dag` is triggered with a `meeting_key`. It fetches eight OpenF1 endpoints: sessions, drivers, laps, location, starting_grid, meetings, car_data, and stints. Location and car_data are paginated per driver number to avoid 422 errors from the API. Each endpoint is uploaded to GCS as newline-delimited JSON and loaded into BigQuery raw tables using `WRITE_TRUNCATE` scoped to the partition, so re-running a race overwrites only that race's data.
 
 ### Storage
 
@@ -88,6 +88,7 @@ stg_openf1__drivers
 stg_openf1__laps
 stg_openf1__location
 stg_openf1__starting_grid
+stg_openf1__car_data
 ```
 
 **Intermediate** (views) — enrich with driver context. One design decision worth noting: `starting_grid` uses the qualifying `session_key`, not the race `session_key`, so the intermediate model joins on `meeting_key + driver_number` only to avoid a broken join.
@@ -105,13 +106,29 @@ dim_drivers           one row per driver, attributes and team info
 fct_race_replay       x/y position per driver per timestamp
 fct_laps              lap timing data enriched with driver info
 fct_starting_grid     qualifying positions enriched with driver info
+fct_car_telemetry     rpm, speed, gear, throttle, brake, drs per driver per timestamp
 ```
 
-All mart models have dbt tests for `not_null` and `unique` constraints on primary keys.
+### Data Quality
+
+All mart models have dbt tests for `not_null` and `unique` constraints on primary keys. `fct_car_telemetry` has additional domain-specific custom tests that validate telemetry values against known physical limits.
+
+```
+brake_range               brake values must be between 0 and 105
+throttle_range            throttle values must be between 0 and 110
+rpm_range                 rpm values must be between 0 and 15000
+speed_range               speed values must be between 0 and 410 km/h
+valid_drs                 drs values must match known OpenF1 states
+brake_throttle_combination  flags sustained simultaneous extreme brake and throttle
+```
+
+The thresholds are intentionally permissive of known sensor behaviour — for example OpenF1 encodes full braking as 104 rather than 100, so the brake ceiling is set to 105 rather than 100 to avoid false positives while still catching genuinely corrupt values.
 
 ### Serving
 
-The Streamlit app queries BigQuery directly using a read-only service account. Animation runs entirely in JavaScript via `requestAnimationFrame` at 60fps. Plotly frames were abandoned due to 500MB message size limits and jerky animation. Binary search interpolation between position samples produces smooth car movement between data points. Race data is sampled every 5th row per driver in BigQuery before being sent to the browser.
+The Streamlit app queries BigQuery directly using a read-only service account. Only meetings with corresponding location data in `fct_race_replay` appear in the race selector, which automatically excludes cancelled or incomplete races regardless of what the pipeline ingested.
+
+Animation runs entirely in JavaScript via `requestAnimationFrame` at 60fps. Plotly frames were abandoned due to 500MB message size limits and jerky animation. Binary search interpolation between position samples produces smooth car movement between data points. Race data is sampled every 5th row per driver in BigQuery before being sent to the browser.
 
 ## Project Structure
 
@@ -127,7 +144,8 @@ openf1-pipeline/
 │   │   ├── intermediate/
 │   │   └── marts/
 │   ├── macros/
-│   │   └── generate_schema_name.sql
+│   │   ├── generate_schema_name.sql
+│   │   └── car_telemetry_tests.sql
 │   └── dbt_project.yml
 ├── schemas.py
 ├── docker-compose.yml
@@ -175,7 +193,7 @@ Airflow will be available at `http://localhost:8080`. Default credentials are `a
 ```bash
 cd openf1_dbt
 python -m venv venv
-source venv/bin/activate
+venv\Scripts\activate
 pip install dbt-bigquery==1.11.7
 dbt deps
 dbt run
@@ -196,7 +214,7 @@ airflow dags trigger ingestion_dag --conf '{"meeting_key": 1281}'
 
 **Real-time playback speed** — the race replay runs at 1:1 speed. Configurable playback speed is on the roadmap.
 
-**No tire compound data** — the `/stints` endpoint is not yet ingested. Tire strategy analysis is planned for Phase 2.
+**Cancelled race handling** — the pipeline ingests metadata for all scheduled races including cancelled ones. The Streamlit app filters these out by checking for the presence of location data, but the raw and staging layers will still contain partial data for cancelled events.
 
 ## Related
 
