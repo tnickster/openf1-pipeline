@@ -49,3 +49,32 @@ models:
       - name: session_key
         tests:
           - not_null
+
+  - name: fct_car_telemetry
+    tests:
+      - brake_throttle_combination
+    columns:
+      - name: date
+        tests:
+          - not_null
+      - name: driver_number
+        tests:
+          - not_null
+      - name: session_key
+        tests:
+          - not_null
+      - name: brake
+        tests:
+          - brake_range
+      - name: throttle
+        tests:
+          - throttle_range
+      - name: rpm
+        tests:
+          - rpm_range
+      - name: speed
+        tests:
+          - speed_range
+      - name: drs
+        tests:
+          - valid_drs

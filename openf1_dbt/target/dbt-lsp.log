@@ -18007,3 +18007,1676 @@
 00:53:39.789119 [info ]: Started scheduling
 00:53:39.789205 [info ]: Finished scheduling [  0.00s]
 00:53:39.791393 [info ]: Cached model count updated: 11 models (accurate)
+==================== 2026-04-09T01:42:38.190087Z | d8de2e1e-ee98-4447-ba6c-d475541348d3 ====================
+01:42:38.191562 [info ]: Starting dbt LSP server
+01:42:38.192485 [info ]: Connecting to LSP client on port 8000
+01:42:38.195182 [info ]: Successfully connected to LSP client
+01:42:38.195209 [info ]: Creating LSP service...
+01:42:38.263983 [info ]: Creating LSP server...
+01:42:38.264000 [info ]: Starting LSP server...
+01:42:38.630393 [info ]: Loading ~/.dbt/profiles.yml
+01:42:38.825193 [info ]: Waiting for lease on 'target' directory
+01:42:39.266892 [info ]: Started loading project
+01:42:39.268243 [info ]: Loading ~/.dbt/profiles.yml
+01:42:39.299656 [info ]:    Started resolving packages from packages.yml
+01:42:39.501774 [info ]:   Finished [  0.20s] resolving packages from packages.yml (1 items)
+01:42:39.503682 [debug]:    Started loading packages
+01:42:39.527499 [debug]:     Loaded [  0.02s] packages
+01:42:39.531444 [info ]: Finished loading project [  0.26s]
+01:42:39.534294 [info ]: Started parsing
+01:42:40.011209 [debug]: Finished parsing models\marts\marts.yml [  0.01s]
+01:42:40.020116 [debug]: Finished parsing models\staging\sources.yml [  0.01s]
+01:42:40.044257 [debug]: Finished parsing models\intermediate\int_laps__enriched.sql [  0.02s]
+01:42:40.054052 [debug]: Finished parsing models\intermediate\int_location__enriched.sql [  0.01s]
+01:42:40.054544 [debug]: Finished parsing models\intermediate\int_starting_grid__enriched.sql [  0.00s]
+01:42:40.062774 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.01s]
+01:42:40.069961 [debug]: Finished parsing models\marts\fct_laps.sql [  0.01s]
+01:42:40.077415 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.01s]
+01:42:40.084253 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.01s]
+01:42:40.090590 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.01s]
+01:42:40.097792 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.01s]
+01:42:40.106473 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.01s]
+01:42:40.123343 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.02s]
+01:42:40.128130 [info ]: Finished parsing [  0.59s]
+01:42:40.129914 [info ]: Cached model count updated: 11 models (estimate)
+01:42:40.129938 [info ]: Cached model count updated: 11 models (accurate)
+01:42:40.131695 [info ]: Started scheduling
+01:42:40.134359 [info ]: Finished scheduling [  0.00s]
+01:42:40.134699 [debug]: Compilation - 0 nodes selected: {}
+01:42:40.134762 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+01:42:40.135151 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+01:42:40.135391 [info ]: Started scheduling
+01:42:40.136111 [info ]: Finished scheduling [  0.00s]
+01:42:40.139564 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "drivers" }) and interval: None
+01:42:40.140121 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "laps" }) and interval: None
+01:42:40.140524 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "starting_grid" }) and interval: None
+01:42:40.140865 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "location" }) and interval: None
+01:42:40.366330 [info ]: Started building task graph
+01:42:40.367926 [info ]: Finished building task graph [  0.00s]
+01:42:40.383122 [info ]: Started scheduling
+01:42:40.383227 [info ]: Finished scheduling [  0.00s]
+01:42:40.384208 [info ]: Cached model count updated: 11 models (accurate)
+01:42:40.437350 [info ]: Waiting for lease on 'target' directory
+01:42:40.888809 [info ]: Started loading project
+01:42:40.889269 [info ]: Loading ~/.dbt/profiles.yml
+01:42:40.901888 [info ]: Started parsing
+01:42:40.921644 [info ]: Finished loading project [  0.03s]
+01:42:40.926597 [info ]: Finished parsing [  0.02s]
+01:42:40.929894 [info ]: Cached model count updated: 11 models (estimate)
+01:42:40.929921 [info ]: Cached model count updated: 11 models (accurate)
+01:42:40.930140 [info ]: Started scheduling
+01:42:40.930927 [info ]: Finished scheduling [  0.00s]
+01:42:40.930970 [debug]: Compilation - 3 nodes selected: {"model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__drivers", "model.openf1_dbt.stg_openf1__starting_grid"}
+01:42:41.078782 [info ]: Started building task graph
+01:42:41.079714 [info ]: Finished building task graph [  0.00s]
+01:42:41.081852 [info ]: Started rendering (3 nodes)
+01:42:41.082711 [info ]: Started model intermediate.int_starting_grid__enriched
+01:42:41.083693 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+01:42:41.083875 [info ]: Started model staging.stg_openf1__starting_grid
+01:42:41.083886 [debug]: Started rendering model staging.stg_openf1__starting_grid
+01:42:41.083899 [info ]: Started model staging.stg_openf1__drivers
+01:42:41.083905 [debug]: Started rendering model staging.stg_openf1__drivers
+01:42:41.090614 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+01:42:41.090614 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__starting_grid at target\.lsp\compiled\models\staging\stg_openf1__starting_grid.sql
+01:42:41.090614 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__drivers at target\.lsp\compiled\models\staging\stg_openf1__drivers.sql
+01:42:41.091792 [debug]: Finished rendering [  0.01s] model intermediate.int_starting_grid__enriched [success]
+01:42:41.091962 [info ]: Started analyzing (3 nodes)
+01:42:41.091977 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+01:42:41.091997 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__drivers [success]
+01:42:41.092010 [debug]: Started analyzing model staging.stg_openf1__drivers
+01:42:41.092030 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__starting_grid [success]
+01:42:41.092036 [info ]: Finished rendering [  0.01s] (3 nodes, 0 skipped, 0 errors)
+01:42:41.092042 [debug]: Started analyzing model staging.stg_openf1__starting_grid
+01:42:41.113885 [info ]:  Succeeded [  0.03s] model staging.stg_openf1__drivers (view)
+01:42:41.113937 [debug]: Finished analyzing [  0.02s] model staging.stg_openf1__drivers [success]
+01:42:41.113959 [info ]:  Succeeded [  0.03s] model staging.stg_openf1__starting_grid (view)
+01:42:41.113972 [debug]: Finished analyzing [  0.02s] model staging.stg_openf1__starting_grid [success]
+01:42:41.116339 [info ]:  Succeeded [  0.03s] model intermediate.int_starting_grid__enriched (view)
+01:42:41.116379 [debug]: Finished analyzing [  0.02s] model intermediate.int_starting_grid__enriched [success]
+01:42:41.116388 [info ]: Finished analyzing [  0.02s] (3 nodes, 0 skipped, 0 errors)
+01:42:41.120353 [info ]: Started scheduling
+01:42:41.120404 [info ]: Finished scheduling [  0.00s]
+01:42:41.121133 [info ]: Cached model count updated: 11 models (accurate)
+01:42:42.689147 [info ]: Started loading project
+01:42:42.689926 [info ]: Loading ~/.dbt/profiles.yml
+01:42:42.701110 [info ]: Started parsing
+01:42:42.734024 [info ]: Finished loading project [  0.04s]
+01:42:42.739483 [info ]: Finished parsing [  0.04s]
+01:42:42.741966 [info ]: Cached model count updated: 11 models (estimate)
+01:42:42.741991 [info ]: Cached model count updated: 11 models (accurate)
+01:42:42.742047 [info ]: Started scheduling
+01:42:42.742146 [info ]: Finished scheduling [  0.00s]
+01:42:42.742161 [debug]: Compilation - 2 nodes selected: {"model.openf1_dbt.fct_starting_grid", "model.openf1_dbt.int_starting_grid__enriched"}
+01:42:42.968260 [info ]: Started building task graph
+01:42:42.968321 [info ]: Finished building task graph [  0.00s]
+01:42:42.968433 [info ]: Started rendering (2 nodes)
+01:42:42.968453 [info ]: Started model marts.fct_starting_grid
+01:42:42.968467 [debug]: Started rendering model marts.fct_starting_grid
+01:42:42.968718 [info ]: Started model intermediate.int_starting_grid__enriched
+01:42:42.968737 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+01:42:42.969743 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+01:42:42.969836 [debug]: Finished rendering [  0.00s] model intermediate.int_starting_grid__enriched [success]
+01:42:42.969882 [info ]: Started analyzing (2 nodes)
+01:42:42.969893 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+01:42:42.970346 [info ]:  Succeeded [  0.00s] model intermediate.int_starting_grid__enriched (view)
+01:42:42.970371 [debug]: Finished analyzing [  0.00s] model intermediate.int_starting_grid__enriched [success]
+01:42:42.970473 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+01:42:42.970563 [debug]: Finished rendering [  0.00s] model marts.fct_starting_grid [success]
+01:42:42.970575 [info ]: Finished rendering [  0.00s] (2 nodes, 0 skipped, 0 errors)
+01:42:42.970586 [debug]: Started analyzing model marts.fct_starting_grid
+01:42:42.970853 [info ]:  Succeeded [  0.00s] model marts.fct_starting_grid (table)
+01:42:42.970872 [debug]: Finished analyzing [  0.00s] model marts.fct_starting_grid [success]
+01:42:42.970878 [info ]: Finished analyzing [  0.00s] (2 nodes, 0 skipped, 0 errors)
+01:42:42.974990 [info ]: Started scheduling
+01:42:42.975116 [info ]: Finished scheduling [  0.00s]
+01:42:42.980359 [info ]: Cached model count updated: 11 models (accurate)
+01:42:44.543335 [info ]: Started loading project
+01:42:44.544854 [info ]: Loading ~/.dbt/profiles.yml
+01:42:44.556395 [info ]: Started parsing
+01:42:44.593494 [info ]: Finished loading project [  0.05s]
+01:42:44.599022 [info ]: Finished parsing [  0.04s]
+01:42:44.601957 [info ]: Cached model count updated: 11 models (estimate)
+01:42:44.601994 [info ]: Cached model count updated: 11 models (accurate)
+01:42:44.602055 [info ]: Started scheduling
+01:42:44.602142 [info ]: Finished scheduling [  0.00s]
+01:42:44.602172 [info ]: Started scheduling
+01:42:44.602278 [info ]: Finished scheduling [  0.00s]
+01:42:44.602294 [debug]: Compilation - 7 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location"}
+01:42:44.846039 [info ]: Started building task graph
+01:42:44.846158 [info ]: Finished building task graph [  0.00s]
+01:42:44.846350 [info ]: Started rendering (7 nodes)
+01:42:44.846372 [info ]: Started model marts.fct_race_replay
+01:42:44.846387 [debug]: Started rendering model marts.fct_race_replay
+01:42:44.846418 [info ]: Started model intermediate.int_location__enriched
+01:42:44.846431 [debug]: Started rendering model intermediate.int_location__enriched
+01:42:44.846443 [info ]: Started model staging.stg_openf1__location
+01:42:44.846455 [debug]: Started rendering model staging.stg_openf1__location
+01:42:44.846469 [info ]: Started model marts.fct_laps
+01:42:44.846481 [debug]: Started rendering model marts.fct_laps
+01:42:44.846535 [info ]: Started model intermediate.int_laps__enriched
+01:42:44.846552 [debug]: Started rendering model intermediate.int_laps__enriched
+01:42:44.846580 [info ]: Started model staging.stg_openf1__laps
+01:42:44.846591 [debug]: Started rendering model staging.stg_openf1__laps
+01:42:44.846605 [info ]: Started model marts.dim_drivers
+01:42:44.846612 [debug]: Started rendering model marts.dim_drivers
+01:42:44.849480 [debug]: Compiled SQL for node model.openf1_dbt.int_location__enriched at target\.lsp\compiled\models\intermediate\int_location__enriched.sql
+01:42:44.849508 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__laps at target\.lsp\compiled\models\staging\stg_openf1__laps.sql
+01:42:44.849605 [debug]: Compiled SQL for node model.openf1_dbt.int_laps__enriched at target\.lsp\compiled\models\intermediate\int_laps__enriched.sql
+01:42:44.849638 [debug]: Compiled SQL for node model.openf1_dbt.fct_race_replay at target\.lsp\compiled\models\marts\fct_race_replay.sql
+01:42:44.849662 [debug]: Finished rendering [  0.00s] model intermediate.int_location__enriched [success]
+01:42:44.849706 [info ]: Started analyzing (7 nodes)
+01:42:44.849721 [debug]: Started analyzing model intermediate.int_location__enriched
+01:42:44.849745 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__laps [success]
+01:42:44.849756 [debug]: Started analyzing model staging.stg_openf1__laps
+01:42:44.849766 [debug]: Finished rendering [  0.00s] model marts.fct_race_replay [success]
+01:42:44.849774 [debug]: Started analyzing model marts.fct_race_replay
+01:42:44.849771 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__location at target\.lsp\compiled\models\staging\stg_openf1__location.sql
+01:42:44.849787 [debug]: Finished rendering [  0.00s] model intermediate.int_laps__enriched [success]
+01:42:44.849799 [debug]: Started analyzing model intermediate.int_laps__enriched
+01:42:44.849898 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__location [success]
+01:42:44.849929 [debug]: Started analyzing model staging.stg_openf1__location
+01:42:44.850197 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__laps (view)
+01:42:44.850228 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__laps [success]
+01:42:44.850275 [debug]: Compiled SQL for node model.openf1_dbt.dim_drivers at target\.lsp\compiled\models\marts\dim_drivers.sql
+01:42:44.850449 [debug]: Finished rendering [  0.00s] model marts.dim_drivers [success]
+01:42:44.850469 [debug]: Started analyzing model marts.dim_drivers
+01:42:44.850557 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__location (view)
+01:42:44.850579 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__location [success]
+01:42:44.850757 [info ]:  Succeeded [  0.00s] model marts.dim_drivers (table)
+01:42:44.850775 [debug]: Finished analyzing [  0.00s] model marts.dim_drivers [success]
+01:42:44.850790 [info ]:  Succeeded [  0.00s] model intermediate.int_laps__enriched (view)
+01:42:44.850838 [debug]: Finished analyzing [  0.00s] model intermediate.int_laps__enriched [success]
+01:42:44.850855 [info ]:  Succeeded [  0.00s] model marts.fct_race_replay (table)
+01:42:44.850860 [debug]: Compiled SQL for node model.openf1_dbt.fct_laps at target\.lsp\compiled\models\marts\fct_laps.sql
+01:42:44.850870 [debug]: Finished analyzing [  0.00s] model marts.fct_race_replay [success]
+01:42:44.850968 [debug]: Finished rendering [  0.00s] model marts.fct_laps [success]
+01:42:44.850983 [info ]: Finished rendering [  0.00s] (7 nodes, 0 skipped, 0 errors)
+01:42:44.851003 [debug]: Started analyzing model marts.fct_laps
+01:42:44.851184 [info ]:  Succeeded [  0.00s] model marts.fct_laps (table)
+01:42:44.851207 [debug]: Finished analyzing [  0.00s] model marts.fct_laps [success]
+01:42:44.858151 [info ]:  Succeeded [  0.01s] model intermediate.int_location__enriched (view)
+01:42:44.858208 [debug]: Finished analyzing [  0.01s] model intermediate.int_location__enriched [success]
+01:42:44.858219 [info ]: Finished analyzing [  0.01s] (7 nodes, 0 skipped, 0 errors)
+01:42:44.865326 [info ]: Started scheduling
+01:42:44.865433 [info ]: Finished scheduling [  0.00s]
+01:42:44.870104 [info ]: Cached model count updated: 11 models (accurate)
+==================== 2026-04-10T01:43:48.485872Z | aedc9c26-5305-4a36-9cab-0c354a011170 ====================
+01:43:48.485961 [info ]: Starting dbt LSP server
+01:43:48.486003 [info ]: Connecting to LSP client on port 8000
+01:43:48.487321 [info ]: Successfully connected to LSP client
+01:43:48.487333 [info ]: Creating LSP service...
+01:43:48.537113 [info ]: Creating LSP server...
+01:43:48.537140 [info ]: Starting LSP server...
+01:43:48.683301 [info ]: Loading ~/.dbt/profiles.yml
+01:43:48.713430 [info ]: Waiting for lease on 'target' directory
+01:43:49.271661 [info ]: Waiting for lease on 'target' directory
+01:43:49.826491 [info ]: Started loading project
+01:43:49.828539 [info ]: Loading ~/.dbt/profiles.yml
+01:43:49.862775 [info ]:    Started resolving packages from packages.yml
+01:43:50.004815 [info ]:   Finished [  0.14s] resolving packages from packages.yml (1 items)
+01:43:50.007322 [debug]:    Started loading packages
+01:43:50.026211 [debug]:     Loaded [  0.02s] packages
+01:43:50.031455 [info ]: Finished loading project [  0.20s]
+01:43:50.037110 [info ]: Waiting for lease on 'target' directory
+01:43:50.368401 [info ]: Started loading project
+01:43:50.369097 [info ]: Loading ~/.dbt/profiles.yml
+01:43:50.377093 [info ]:    Started resolving packages from packages.yml
+01:43:50.460609 [info ]:   Finished [  0.08s] resolving packages from packages.yml (1 items)
+01:43:50.460750 [debug]:    Started loading packages
+01:43:50.466545 [debug]:     Loaded [  0.01s] packages
+01:43:50.467024 [info ]: Finished loading project [  0.10s]
+01:43:50.468953 [info ]: Waiting for lease on 'target' directory
+01:43:50.909708 [info ]: Started loading project
+01:43:50.910105 [info ]: Loading ~/.dbt/profiles.yml
+01:43:50.914011 [info ]:    Started resolving packages from packages.yml
+01:43:50.990621 [info ]:   Finished [  0.08s] resolving packages from packages.yml (1 items)
+01:43:50.990744 [debug]:    Started loading packages
+01:43:50.995844 [debug]:     Loaded [  0.01s] packages
+01:43:50.996388 [info ]: Finished loading project [  0.09s]
+01:43:50.997090 [info ]: Started parsing
+01:43:51.265972 [info ]: Finished parsing [  0.27s]
+01:43:51.266464 [info ]: Waiting for lease on 'target' directory
+01:43:51.486982 [info ]: Started loading project
+01:43:51.487391 [info ]: Loading ~/.dbt/profiles.yml
+01:43:51.491272 [info ]:    Started resolving packages from packages.yml
+01:43:51.575612 [info ]:   Finished [  0.08s] resolving packages from packages.yml (1 items)
+01:43:51.575743 [debug]:    Started loading packages
+01:43:51.580966 [debug]:     Loaded [  0.01s] packages
+01:43:51.581437 [info ]: Finished loading project [  0.09s]
+01:43:51.581620 [info ]: Started parsing
+01:43:51.663116 [debug]: Finished parsing models\marts\marts.yml [  0.01s]
+01:43:51.670207 [debug]: Finished parsing models\staging\sources.yml [  0.01s]
+01:43:51.690624 [debug]: Finished parsing models\intermediate\int_laps__enriched.sql [  0.01s]
+01:43:51.691081 [debug]: Finished parsing models\intermediate\int_location__enriched.sql [  0.00s]
+01:43:51.691811 [debug]: Finished parsing models\intermediate\int_starting_grid__enriched.sql [  0.00s]
+01:43:51.692183 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.00s]
+01:43:51.692519 [debug]: Finished parsing models\marts\fct_laps.sql [  0.00s]
+01:43:51.692878 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.00s]
+01:43:51.699084 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.01s]
+01:43:51.706194 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.01s]
+01:43:51.712601 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.01s]
+01:43:51.718654 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.01s]
+01:43:51.734902 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.02s]
+01:43:51.739206 [info ]: Finished parsing [  0.16s]
+01:43:51.740896 [info ]: Cached model count updated: 11 models (estimate)
+01:43:51.740909 [info ]: Cached model count updated: 11 models (accurate)
+01:43:51.742929 [info ]: Started scheduling
+01:43:51.746290 [info ]: Finished scheduling [  0.00s]
+01:43:51.746449 [debug]: Compilation - 10 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__drivers", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location", "model.openf1_dbt.stg_openf1__starting_grid"}
+01:43:51.746727 [info ]: Started scheduling
+01:43:51.746935 [info ]: Finished scheduling [  0.00s]
+01:43:51.749919 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "location" }) and interval: None
+01:43:51.750541 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "starting_grid" }) and interval: None
+01:43:51.750697 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "laps" }) and interval: None
+01:43:51.750836 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "drivers" }) and interval: None
+01:43:51.910303 [info ]: Started building task graph
+01:43:51.912214 [info ]: Finished building task graph [  0.00s]
+01:43:51.916488 [info ]: Started rendering (10 nodes)
+01:43:51.917132 [info ]: Started model intermediate.int_starting_grid__enriched
+01:43:51.918278 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+01:43:51.918450 [info ]: Started model staging.stg_openf1__starting_grid
+01:43:51.918460 [debug]: Started rendering model staging.stg_openf1__starting_grid
+01:43:51.918472 [info ]: Started model marts.fct_race_replay
+01:43:51.918477 [debug]: Started rendering model marts.fct_race_replay
+01:43:51.918484 [info ]: Started model intermediate.int_location__enriched
+01:43:51.918515 [debug]: Started rendering model intermediate.int_location__enriched
+01:43:51.918523 [info ]: Started model staging.stg_openf1__location
+01:43:51.918529 [debug]: Started rendering model staging.stg_openf1__location
+01:43:51.918535 [info ]: Started model marts.fct_laps
+01:43:51.918540 [debug]: Started rendering model marts.fct_laps
+01:43:51.918547 [info ]: Started model intermediate.int_laps__enriched
+01:43:51.918553 [debug]: Started rendering model intermediate.int_laps__enriched
+01:43:51.918560 [info ]: Started model staging.stg_openf1__laps
+01:43:51.918566 [debug]: Started rendering model staging.stg_openf1__laps
+01:43:51.918576 [info ]: Started model marts.dim_drivers
+01:43:51.918582 [debug]: Started rendering model marts.dim_drivers
+01:43:51.918588 [info ]: Started model staging.stg_openf1__drivers
+01:43:51.918592 [debug]: Started rendering model staging.stg_openf1__drivers
+01:43:51.926438 [debug]: Compiled SQL for node model.openf1_dbt.fct_laps at target\.lsp\compiled\models\marts\fct_laps.sql
+01:43:51.926438 [debug]: Compiled SQL for node model.openf1_dbt.dim_drivers at target\.lsp\compiled\models\marts\dim_drivers.sql
+01:43:51.926438 [debug]: Compiled SQL for node model.openf1_dbt.int_laps__enriched at target\.lsp\compiled\models\intermediate\int_laps__enriched.sql
+01:43:51.926470 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__laps at target\.lsp\compiled\models\staging\stg_openf1__laps.sql
+01:43:51.926482 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__location at target\.lsp\compiled\models\staging\stg_openf1__location.sql
+01:43:51.926488 [debug]: Compiled SQL for node model.openf1_dbt.int_location__enriched at target\.lsp\compiled\models\intermediate\int_location__enriched.sql
+01:43:51.926497 [debug]: Compiled SQL for node model.openf1_dbt.fct_race_replay at target\.lsp\compiled\models\marts\fct_race_replay.sql
+01:43:51.926502 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+01:43:51.926503 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__drivers at target\.lsp\compiled\models\staging\stg_openf1__drivers.sql
+01:43:51.926515 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__starting_grid at target\.lsp\compiled\models\staging\stg_openf1__starting_grid.sql
+01:43:51.928716 [debug]: Finished rendering [  0.01s] model marts.dim_drivers [success]
+01:43:51.929642 [info ]: Started analyzing (10 nodes)
+01:43:51.929715 [debug]: Started analyzing model marts.dim_drivers
+01:43:51.929853 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__location [success]
+01:43:51.929935 [debug]: Started analyzing model staging.stg_openf1__location
+01:43:51.929962 [debug]: Finished rendering [  0.01s] model intermediate.int_laps__enriched [success]
+01:43:51.929976 [debug]: Started analyzing model intermediate.int_laps__enriched
+01:43:51.930199 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__laps [success]
+01:43:51.930216 [debug]: Started analyzing model staging.stg_openf1__laps
+01:43:51.930230 [debug]: Finished rendering [  0.01s] model intermediate.int_location__enriched [success]
+01:43:51.930251 [debug]: Started analyzing model intermediate.int_location__enriched
+01:43:51.930264 [debug]: Finished rendering [  0.01s] model marts.fct_laps [success]
+01:43:51.930272 [debug]: Started analyzing model marts.fct_laps
+01:43:51.930287 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__starting_grid [success]
+01:43:51.930295 [debug]: Started analyzing model staging.stg_openf1__starting_grid
+01:43:51.930307 [debug]: Finished rendering [  0.01s] model intermediate.int_starting_grid__enriched [success]
+01:43:51.930314 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+01:43:51.930326 [debug]: Finished rendering [  0.01s] model marts.fct_race_replay [success]
+01:43:51.930332 [debug]: Started analyzing model marts.fct_race_replay
+01:43:51.931060 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__drivers [success]
+01:43:51.931085 [info ]: Finished rendering [  0.01s] (10 nodes, 0 skipped, 0 errors)
+01:43:51.931106 [debug]: Started analyzing model staging.stg_openf1__drivers
+01:43:51.952674 [info ]:  Succeeded [  0.03s] model marts.fct_race_replay (table)
+01:43:51.952705 [debug]: Finished analyzing [  0.02s] model marts.fct_race_replay [success]
+01:43:51.952718 [info ]:  Succeeded [  0.03s] model staging.stg_openf1__location (view)
+01:43:51.952728 [debug]: Finished analyzing [  0.02s] model staging.stg_openf1__location [success]
+01:43:51.952737 [info ]:  Succeeded [  0.03s] model marts.dim_drivers (table)
+01:43:51.952743 [debug]: Finished analyzing [  0.02s] model marts.dim_drivers [success]
+01:43:51.952749 [info ]:  Succeeded [  0.03s] model staging.stg_openf1__drivers (view)
+01:43:51.952758 [debug]: Finished analyzing [  0.02s] model staging.stg_openf1__drivers [success]
+01:43:51.952764 [info ]:  Succeeded [  0.03s] model staging.stg_openf1__laps (view)
+01:43:51.952770 [debug]: Finished analyzing [  0.02s] model staging.stg_openf1__laps [success]
+01:43:51.952778 [info ]:  Succeeded [  0.03s] model marts.fct_laps (table)
+01:43:51.952785 [debug]: Finished analyzing [  0.02s] model marts.fct_laps [success]
+01:43:51.952791 [info ]:  Succeeded [  0.03s] model staging.stg_openf1__starting_grid (view)
+01:43:51.952800 [debug]: Finished analyzing [  0.02s] model staging.stg_openf1__starting_grid [success]
+01:43:51.953375 [info ]:  Succeeded [  0.04s] model intermediate.int_starting_grid__enriched (view)
+01:43:51.953397 [debug]: Finished analyzing [  0.02s] model intermediate.int_starting_grid__enriched [success]
+01:43:51.953406 [info ]:  Succeeded [  0.03s] model intermediate.int_laps__enriched (view)
+01:43:51.953412 [debug]: Finished analyzing [  0.02s] model intermediate.int_laps__enriched [success]
+01:43:51.953592 [info ]:  Succeeded [  0.03s] model intermediate.int_location__enriched (view)
+01:43:51.953612 [debug]: Finished analyzing [  0.02s] model intermediate.int_location__enriched [success]
+01:43:51.953618 [info ]: Finished analyzing [  0.02s] (10 nodes, 0 skipped, 0 errors)
+01:43:51.960106 [info ]: Started scheduling
+01:43:51.960152 [info ]: Finished scheduling [  0.00s]
+01:43:51.960836 [info ]: Cached model count updated: 11 models (accurate)
+01:43:52.097924 [info ]: Started loading project
+01:43:52.098345 [info ]: Loading ~/.dbt/profiles.yml
+01:43:52.108543 [info ]: Started parsing
+01:43:52.128357 [info ]: Finished loading project [  0.03s]
+01:43:52.133084 [info ]: Finished parsing [  0.02s]
+01:43:52.134799 [info ]: Cached model count updated: 11 models (estimate)
+01:43:52.134816 [info ]: Cached model count updated: 11 models (accurate)
+01:43:52.134851 [info ]: Started scheduling
+01:43:52.134912 [info ]: Finished scheduling [  0.00s]
+01:43:52.134923 [debug]: Compilation - 1 nodes selected: {"model.openf1_dbt.fct_starting_grid"}
+01:43:52.257998 [info ]: Started building task graph
+01:43:52.258039 [info ]: Finished building task graph [  0.00s]
+01:43:52.258179 [info ]: Started rendering (1 nodes)
+01:43:52.258192 [info ]: Started model marts.fct_starting_grid
+01:43:52.258208 [debug]: Started rendering model marts.fct_starting_grid
+01:43:52.259140 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+01:43:52.259248 [debug]: Finished rendering [  0.00s] model marts.fct_starting_grid [success]
+01:43:52.259269 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+01:43:52.259289 [info ]: Started analyzing (1 nodes)
+01:43:52.259301 [debug]: Started analyzing model marts.fct_starting_grid
+01:43:52.259549 [info ]:  Succeeded [  0.00s] model marts.fct_starting_grid (table)
+01:43:52.259574 [debug]: Finished analyzing [  0.00s] model marts.fct_starting_grid [success]
+01:43:52.259579 [info ]: Finished analyzing [  0.00s] (1 nodes, 0 skipped, 0 errors)
+01:43:52.262677 [info ]: Started scheduling
+01:43:52.262750 [info ]: Finished scheduling [  0.00s]
+01:43:52.263314 [info ]: Cached model count updated: 11 models (accurate)
+01:43:53.806889 [info ]: Started loading project
+01:43:53.807630 [info ]: Loading ~/.dbt/profiles.yml
+01:43:53.811934 [info ]: Started parsing
+01:43:53.828860 [info ]: Finished loading project [  0.02s]
+01:43:53.831205 [info ]: Finished parsing [  0.02s]
+01:43:53.832763 [info ]: Cached model count updated: 11 models (estimate)
+01:43:53.832788 [info ]: Cached model count updated: 11 models (accurate)
+01:43:53.832847 [info ]: Started scheduling
+01:43:53.832941 [info ]: Finished scheduling [  0.00s]
+01:43:53.832958 [debug]: Compilation - 1 nodes selected: {"model.openf1_dbt.fct_starting_grid"}
+01:43:53.967498 [info ]: Started building task graph
+01:43:53.967539 [info ]: Finished building task graph [  0.00s]
+01:43:53.967632 [info ]: Started rendering (1 nodes)
+01:43:53.967645 [info ]: Started model marts.fct_starting_grid
+01:43:53.967653 [debug]: Started rendering model marts.fct_starting_grid
+01:43:53.968566 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+01:43:53.968625 [debug]: Finished rendering [  0.00s] model marts.fct_starting_grid [success]
+01:43:53.968639 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+01:43:53.968652 [info ]: Started analyzing (1 nodes)
+01:43:53.968657 [debug]: Started analyzing model marts.fct_starting_grid
+01:43:53.968801 [info ]:  Succeeded [-------] model marts.fct_starting_grid (table)
+01:43:53.968815 [debug]: Finished analyzing [  0.00s] model marts.fct_starting_grid [success]
+01:43:53.968819 [info ]: Finished analyzing [  0.00s] (1 nodes, 0 skipped, 0 errors)
+01:43:53.971525 [info ]: Started scheduling
+01:43:53.971566 [info ]: Finished scheduling [  0.00s]
+01:43:53.973819 [info ]: Cached model count updated: 11 models (accurate)
+01:43:55.518436 [info ]: Started loading project
+01:43:55.518931 [info ]: Loading ~/.dbt/profiles.yml
+01:43:55.523170 [info ]: Started parsing
+01:43:55.538877 [info ]: Finished loading project [  0.02s]
+01:43:55.541233 [info ]: Finished parsing [  0.02s]
+01:43:55.542490 [info ]: Cached model count updated: 11 models (estimate)
+01:43:55.542503 [info ]: Cached model count updated: 11 models (accurate)
+01:43:55.542527 [info ]: Started scheduling
+01:43:55.542559 [info ]: Finished scheduling [  0.00s]
+01:43:55.542572 [info ]: Started scheduling
+01:43:55.542595 [info ]: Finished scheduling [  0.00s]
+01:43:55.542601 [debug]: Compilation - 0 nodes selected: {}
+01:43:55.542743 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+01:43:55.670570 [info ]: Started building task graph
+01:43:55.670601 [info ]: Finished building task graph [  0.00s]
+01:43:55.673482 [info ]: Started scheduling
+01:43:55.673530 [info ]: Finished scheduling [  0.00s]
+01:43:55.675448 [info ]: Cached model count updated: 11 models (accurate)
+==================== 2026-04-13T04:19:50.017065Z | efba7a03-ec05-4b1f-ac8c-7759cce202cd ====================
+04:19:50.017122 [info ]: Starting dbt LSP server
+04:19:50.017152 [info ]: Connecting to LSP client on port 8000
+04:19:50.018464 [info ]: Successfully connected to LSP client
+04:19:50.018489 [info ]: Creating LSP service...
+04:19:50.075953 [info ]: Creating LSP server...
+04:19:50.075995 [info ]: Starting LSP server...
+04:19:50.101640 [info ]: Loading ~/.dbt/profiles.yml
+04:19:50.163132 [info ]: Waiting for lease on 'target' directory
+04:19:50.812476 [info ]: Started loading project
+04:19:50.814312 [info ]: Loading ~/.dbt/profiles.yml
+04:19:50.846200 [info ]:    Started resolving packages from packages.yml
+04:19:50.970608 [info ]:   Finished [  0.12s] resolving packages from packages.yml (1 items)
+04:19:50.972852 [debug]:    Started loading packages
+04:19:50.991592 [debug]:     Loaded [  0.02s] packages
+04:19:50.996376 [info ]: Finished loading project [  0.18s]
+04:19:51.000130 [info ]: Started parsing
+04:19:51.322963 [debug]: Finished parsing models\marts\marts.yml [  0.01s]
+04:19:51.331039 [debug]: Finished parsing models\staging\sources.yml [  0.01s]
+04:19:51.358083 [debug]: Finished parsing models\intermediate\int_laps__enriched.sql [  0.02s]
+04:19:51.365137 [debug]: Finished parsing models\intermediate\int_location__enriched.sql [  0.01s]
+04:19:51.374552 [debug]: Finished parsing models\intermediate\int_starting_grid__enriched.sql [  0.01s]
+04:19:51.381729 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.01s]
+04:19:51.388482 [debug]: Finished parsing models\marts\fct_laps.sql [  0.01s]
+04:19:51.396958 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.01s]
+04:19:51.404464 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.01s]
+04:19:51.412563 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.01s]
+04:19:51.420234 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.01s]
+04:19:51.429436 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.01s]
+04:19:51.449796 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.02s]
+04:19:51.454659 [info ]: Finished parsing [  0.45s]
+04:19:51.456632 [info ]: Cached model count updated: 11 models (estimate)
+04:19:51.456655 [info ]: Cached model count updated: 11 models (accurate)
+04:19:51.458706 [info ]: Started scheduling
+04:19:51.461459 [info ]: Finished scheduling [  0.00s]
+04:19:51.461742 [debug]: Compilation - 0 nodes selected: {}
+04:19:51.462111 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:19:51.462411 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:19:51.462587 [info ]: Started scheduling
+04:19:51.463094 [info ]: Finished scheduling [  0.00s]
+04:19:51.465964 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "drivers" }) and interval: None
+04:19:51.466519 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "laps" }) and interval: None
+04:19:51.466697 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "location" }) and interval: None
+04:19:51.466864 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "starting_grid" }) and interval: None
+04:19:51.631762 [info ]: Started building task graph
+04:19:51.633051 [info ]: Finished building task graph [  0.00s]
+04:19:51.642782 [info ]: Started scheduling
+04:19:51.642828 [info ]: Finished scheduling [  0.00s]
+04:19:51.643439 [info ]: Cached model count updated: 11 models (accurate)
+04:19:53.198659 [info ]: Started loading project
+04:19:53.199357 [info ]: Loading ~/.dbt/profiles.yml
+04:19:53.214265 [info ]: Started parsing
+04:19:53.240611 [info ]: Finished loading project [  0.04s]
+04:19:53.244593 [info ]: Finished parsing [  0.03s]
+04:19:53.247591 [info ]: Cached model count updated: 11 models (estimate)
+04:19:53.247610 [info ]: Cached model count updated: 11 models (accurate)
+04:19:53.247647 [info ]: Started scheduling
+04:19:53.247692 [info ]: Finished scheduling [  0.00s]
+04:19:53.247709 [info ]: Started scheduling
+04:19:53.247811 [info ]: Finished scheduling [  0.00s]
+04:19:53.247825 [debug]: Compilation - 11 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.fct_starting_grid", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__drivers", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location", "model.openf1_dbt.stg_openf1__starting_grid"}
+04:19:53.525522 [info ]: Started building task graph
+04:19:53.527363 [info ]: Finished building task graph [  0.00s]
+04:19:53.531380 [info ]: Started rendering (11 nodes)
+04:19:53.532288 [info ]: Started model marts.fct_starting_grid
+04:19:53.534093 [debug]: Started rendering model marts.fct_starting_grid
+04:19:53.534346 [info ]: Started model intermediate.int_starting_grid__enriched
+04:19:53.534359 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+04:19:53.534375 [info ]: Started model staging.stg_openf1__starting_grid
+04:19:53.534386 [debug]: Started rendering model staging.stg_openf1__starting_grid
+04:19:53.534399 [info ]: Started model marts.fct_race_replay
+04:19:53.534407 [debug]: Started rendering model marts.fct_race_replay
+04:19:53.534420 [info ]: Started model intermediate.int_location__enriched
+04:19:53.534428 [debug]: Started rendering model intermediate.int_location__enriched
+04:19:53.534440 [info ]: Started model staging.stg_openf1__location
+04:19:53.534448 [debug]: Started rendering model staging.stg_openf1__location
+04:19:53.534459 [info ]: Started model marts.fct_laps
+04:19:53.534466 [debug]: Started rendering model marts.fct_laps
+04:19:53.534479 [info ]: Started model intermediate.int_laps__enriched
+04:19:53.534488 [debug]: Started rendering model intermediate.int_laps__enriched
+04:19:53.534502 [info ]: Started model staging.stg_openf1__laps
+04:19:53.534511 [debug]: Started rendering model staging.stg_openf1__laps
+04:19:53.534530 [info ]: Started model marts.dim_drivers
+04:19:53.534538 [debug]: Started rendering model marts.dim_drivers
+04:19:53.534554 [info ]: Started model staging.stg_openf1__drivers
+04:19:53.534562 [debug]: Started rendering model staging.stg_openf1__drivers
+04:19:53.563778 [debug]: Compiled SQL for node model.openf1_dbt.fct_laps at target\.lsp\compiled\models\marts\fct_laps.sql
+04:19:53.564149 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__laps at target\.lsp\compiled\models\staging\stg_openf1__laps.sql
+04:19:53.564221 [debug]: Compiled SQL for node model.openf1_dbt.int_laps__enriched at target\.lsp\compiled\models\intermediate\int_laps__enriched.sql
+04:19:53.564535 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__starting_grid at target\.lsp\compiled\models\staging\stg_openf1__starting_grid.sql
+04:19:53.565062 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__drivers at target\.lsp\compiled\models\staging\stg_openf1__drivers.sql
+04:19:53.565365 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+04:19:53.567192 [debug]: Compiled SQL for node model.openf1_dbt.fct_race_replay at target\.lsp\compiled\models\marts\fct_race_replay.sql
+04:19:53.569856 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+04:19:53.570523 [debug]: Compiled SQL for node model.openf1_dbt.int_location__enriched at target\.lsp\compiled\models\intermediate\int_location__enriched.sql
+04:19:53.571364 [debug]: Finished rendering [  0.04s] model marts.fct_laps [success]
+04:19:53.572109 [info ]: Started analyzing (11 nodes)
+04:19:53.572134 [debug]: Started analyzing model marts.fct_laps
+04:19:53.572176 [debug]: Finished rendering [  0.04s] model staging.stg_openf1__drivers [success]
+04:19:53.572200 [debug]: Started analyzing model staging.stg_openf1__drivers
+04:19:53.572223 [debug]: Finished rendering [  0.04s] model staging.stg_openf1__laps [success]
+04:19:53.572235 [debug]: Started analyzing model staging.stg_openf1__laps
+04:19:53.572249 [debug]: Finished rendering [  0.04s] model intermediate.int_laps__enriched [success]
+04:19:53.572260 [debug]: Started analyzing model intermediate.int_laps__enriched
+04:19:53.572276 [debug]: Finished rendering [  0.04s] model staging.stg_openf1__starting_grid [success]
+04:19:53.572287 [debug]: Started analyzing model staging.stg_openf1__starting_grid
+04:19:53.572302 [debug]: Finished rendering [  0.04s] model marts.fct_race_replay [success]
+04:19:53.572311 [debug]: Started analyzing model marts.fct_race_replay
+04:19:53.572324 [debug]: Finished rendering [  0.04s] model intermediate.int_starting_grid__enriched [success]
+04:19:53.572347 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+04:19:53.572362 [debug]: Finished rendering [  0.04s] model marts.fct_starting_grid [success]
+04:19:53.572371 [debug]: Started analyzing model marts.fct_starting_grid
+04:19:53.572383 [debug]: Finished rendering [  0.04s] model intermediate.int_location__enriched [success]
+04:19:53.572392 [debug]: Started analyzing model intermediate.int_location__enriched
+04:19:53.574764 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__location at target\.lsp\compiled\models\staging\stg_openf1__location.sql
+04:19:53.574994 [debug]: Finished rendering [  0.04s] model staging.stg_openf1__location [success]
+04:19:53.575031 [debug]: Started analyzing model staging.stg_openf1__location
+04:19:53.578357 [debug]: Compiled SQL for node model.openf1_dbt.dim_drivers at target\.lsp\compiled\models\marts\dim_drivers.sql
+04:19:53.582663 [debug]: Finished rendering [  0.05s] model marts.dim_drivers [success]
+04:19:53.582693 [info ]: Finished rendering [  0.05s] (11 nodes, 0 skipped, 0 errors)
+04:19:53.582728 [debug]: Started analyzing model marts.dim_drivers
+04:19:53.612880 [info ]:  Succeeded [  0.08s] model staging.stg_openf1__laps (view)
+04:19:53.612924 [debug]: Finished analyzing [  0.04s] model staging.stg_openf1__laps [success]
+04:19:53.612974 [info ]:  Succeeded [  0.08s] model marts.dim_drivers (table)
+04:19:53.612992 [debug]: Finished analyzing [  0.03s] model marts.dim_drivers [success]
+04:19:53.614554 [info ]:  Succeeded [  0.08s] model marts.fct_starting_grid (table)
+04:19:53.614586 [debug]: Finished analyzing [  0.04s] model marts.fct_starting_grid [success]
+04:19:53.614810 [info ]:  Succeeded [  0.08s] model marts.fct_laps (table)
+04:19:53.614832 [debug]: Finished analyzing [  0.04s] model marts.fct_laps [success]
+04:19:53.615168 [info ]:  Succeeded [  0.08s] model staging.stg_openf1__drivers (view)
+04:19:53.615194 [debug]: Finished analyzing [  0.04s] model staging.stg_openf1__drivers [success]
+04:19:53.615402 [info ]:  Succeeded [  0.08s] model staging.stg_openf1__starting_grid (view)
+04:19:53.615500 [debug]: Finished analyzing [  0.04s] model staging.stg_openf1__starting_grid [success]
+04:19:53.615692 [info ]:  Succeeded [  0.08s] model marts.fct_race_replay (table)
+04:19:53.615717 [debug]: Finished analyzing [  0.04s] model marts.fct_race_replay [success]
+04:19:53.618320 [info ]:  Succeeded [  0.08s] model staging.stg_openf1__location (view)
+04:19:53.618391 [debug]: Finished analyzing [  0.04s] model staging.stg_openf1__location [success]
+04:19:53.620787 [info ]:  Succeeded [  0.09s] model intermediate.int_laps__enriched (view)
+04:19:53.620830 [debug]: Finished analyzing [  0.05s] model intermediate.int_laps__enriched [success]
+04:19:53.622436 [info ]:  Succeeded [  0.09s] model intermediate.int_starting_grid__enriched (view)
+04:19:53.622569 [debug]: Finished analyzing [  0.05s] model intermediate.int_starting_grid__enriched [success]
+04:19:53.625858 [info ]:  Succeeded [  0.09s] model intermediate.int_location__enriched (view)
+04:19:53.625904 [debug]: Finished analyzing [  0.05s] model intermediate.int_location__enriched [success]
+04:19:53.625914 [info ]: Finished analyzing [  0.05s] (11 nodes, 0 skipped, 0 errors)
+04:19:53.631608 [info ]: Started scheduling
+04:19:53.631685 [info ]: Finished scheduling [  0.00s]
+04:19:53.636571 [info ]: Cached model count updated: 11 models (accurate)
+04:27:41.041308 [info ]: Started loading project
+04:27:41.041854 [info ]: Loading ~/.dbt/profiles.yml
+04:27:41.053208 [info ]: Started parsing
+04:27:41.069170 [info ]: Finished loading project [  0.03s]
+04:27:41.069895 [debug]: Finished parsing models\staging\sources.yml [  0.00s]
+04:27:41.071277 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.00s]
+04:27:41.071635 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.00s]
+04:27:41.071924 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.00s]
+04:27:41.073436 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.00s]
+04:27:41.074193 [info ]: Finished parsing [  0.02s]
+04:27:41.075347 [info ]: Cached model count updated: 11 models (estimate)
+04:27:41.075359 [info ]: Cached model count updated: 11 models (accurate)
+04:27:41.075577 [info ]: Started scheduling
+04:27:41.076370 [info ]: Finished scheduling [  0.00s]
+04:27:41.076387 [debug]: Compilation - 0 nodes selected: {}
+04:27:41.076404 [warn ]: dbt1600: The selection criterion '+source:openf1_dbt.openf1_raw.starting_grid +source:openf1_dbt.openf1_raw.drivers +source:openf1_dbt.openf1_raw.location +source:openf1_dbt.openf1_raw.car_data +source:openf1_dbt.openf1_raw.laps' does not match any enabled nodes
+04:27:41.076411 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:27:41.197335 [info ]: Started building task graph
+04:27:41.197368 [info ]: Finished building task graph [  0.00s]
+04:27:41.200561 [info ]: Started scheduling
+04:27:41.200753 [info ]: Finished scheduling [  0.00s]
+04:27:41.201360 [info ]: Cached model count updated: 11 models (accurate)
+04:27:41.381651 [info ]: Waiting for lease on 'target' directory
+04:27:41.606350 [info ]: Started loading project
+04:27:41.606810 [info ]: Loading ~/.dbt/profiles.yml
+04:27:41.610982 [info ]: Started parsing
+04:27:41.626594 [info ]: Finished loading project [  0.02s]
+04:27:41.628972 [info ]: Finished parsing [  0.02s]
+04:27:41.630434 [info ]: Cached model count updated: 11 models (estimate)
+04:27:41.630450 [info ]: Cached model count updated: 11 models (accurate)
+04:27:41.630478 [info ]: Started scheduling
+04:27:41.630517 [info ]: Finished scheduling [  0.00s]
+04:27:41.630528 [debug]: Compilation - 0 nodes selected: {}
+04:27:41.630538 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:27:41.630543 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:27:41.749683 [info ]: Started building task graph
+04:27:41.749709 [info ]: Finished building task graph [  0.00s]
+04:27:41.752232 [info ]: Started scheduling
+04:27:41.752272 [info ]: Finished scheduling [  0.00s]
+04:27:41.754546 [info ]: Cached model count updated: 11 models (accurate)
+04:27:43.314522 [info ]: Started loading project
+04:27:43.315022 [info ]: Loading ~/.dbt/profiles.yml
+04:27:43.319621 [info ]: Started parsing
+04:27:43.340623 [info ]: Finished loading project [  0.03s]
+04:27:43.342814 [info ]: Finished parsing [  0.02s]
+04:27:43.344329 [info ]: Cached model count updated: 11 models (estimate)
+04:27:43.344340 [info ]: Cached model count updated: 11 models (accurate)
+04:27:43.344365 [info ]: Started scheduling
+04:27:43.344397 [info ]: Finished scheduling [  0.00s]
+04:27:43.344408 [info ]: Started scheduling
+04:27:43.344471 [info ]: Finished scheduling [  0.00s]
+04:27:43.344479 [debug]: Compilation - 11 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.fct_starting_grid", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__drivers", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location", "model.openf1_dbt.stg_openf1__starting_grid"}
+04:27:43.469888 [info ]: Started building task graph
+04:27:43.469979 [info ]: Finished building task graph [  0.00s]
+04:27:43.470102 [info ]: Started rendering (11 nodes)
+04:27:43.470118 [info ]: Started model marts.fct_starting_grid
+04:27:43.470131 [debug]: Started rendering model marts.fct_starting_grid
+04:27:43.470148 [info ]: Started model intermediate.int_starting_grid__enriched
+04:27:43.470154 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+04:27:43.470160 [info ]: Started model staging.stg_openf1__starting_grid
+04:27:43.470165 [debug]: Started rendering model staging.stg_openf1__starting_grid
+04:27:43.470171 [info ]: Started model marts.fct_race_replay
+04:27:43.470177 [debug]: Started rendering model marts.fct_race_replay
+04:27:43.470187 [info ]: Started model intermediate.int_location__enriched
+04:27:43.470197 [debug]: Started rendering model intermediate.int_location__enriched
+04:27:43.470208 [info ]: Started model staging.stg_openf1__location
+04:27:43.470222 [debug]: Started rendering model staging.stg_openf1__location
+04:27:43.470231 [info ]: Started model marts.fct_laps
+04:27:43.470239 [debug]: Started rendering model marts.fct_laps
+04:27:43.470246 [info ]: Started model intermediate.int_laps__enriched
+04:27:43.470251 [debug]: Started rendering model intermediate.int_laps__enriched
+04:27:43.470259 [info ]: Started model staging.stg_openf1__laps
+04:27:43.470268 [debug]: Started rendering model staging.stg_openf1__laps
+04:27:43.470277 [info ]: Started model marts.dim_drivers
+04:27:43.470284 [debug]: Started rendering model marts.dim_drivers
+04:27:43.470297 [info ]: Started model staging.stg_openf1__drivers
+04:27:43.470307 [debug]: Started rendering model staging.stg_openf1__drivers
+04:27:43.472752 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+04:27:43.472752 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__drivers at target\.lsp\compiled\models\staging\stg_openf1__drivers.sql
+04:27:43.472788 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__location at target\.lsp\compiled\models\staging\stg_openf1__location.sql
+04:27:43.472793 [debug]: Compiled SQL for node model.openf1_dbt.dim_drivers at target\.lsp\compiled\models\marts\dim_drivers.sql
+04:27:43.472795 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+04:27:43.472809 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__laps at target\.lsp\compiled\models\staging\stg_openf1__laps.sql
+04:27:43.472832 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__starting_grid at target\.lsp\compiled\models\staging\stg_openf1__starting_grid.sql
+04:27:43.472834 [debug]: Compiled SQL for node model.openf1_dbt.int_location__enriched at target\.lsp\compiled\models\intermediate\int_location__enriched.sql
+04:27:43.472842 [debug]: Compiled SQL for node model.openf1_dbt.fct_race_replay at target\.lsp\compiled\models\marts\fct_race_replay.sql
+04:27:43.472840 [debug]: Compiled SQL for node model.openf1_dbt.int_laps__enriched at target\.lsp\compiled\models\intermediate\int_laps__enriched.sql
+04:27:43.472843 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__drivers [success]
+04:27:43.472855 [debug]: Compiled SQL for node model.openf1_dbt.fct_laps at target\.lsp\compiled\models\marts\fct_laps.sql
+04:27:43.472872 [info ]: Started analyzing (11 nodes)
+04:27:43.472880 [debug]: Started analyzing model staging.stg_openf1__drivers
+04:27:43.472898 [debug]: Finished rendering [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:27:43.472905 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+04:27:43.472918 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__location [success]
+04:27:43.472927 [debug]: Started analyzing model staging.stg_openf1__location
+04:27:43.472938 [debug]: Finished rendering [  0.00s] model marts.dim_drivers [success]
+04:27:43.472945 [debug]: Started analyzing model marts.dim_drivers
+04:27:43.472955 [debug]: Finished rendering [  0.00s] model marts.fct_starting_grid [success]
+04:27:43.472962 [debug]: Started analyzing model marts.fct_starting_grid
+04:27:43.472972 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__laps [success]
+04:27:43.472977 [debug]: Started analyzing model staging.stg_openf1__laps
+04:27:43.472987 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:27:43.472992 [debug]: Started analyzing model staging.stg_openf1__starting_grid
+04:27:43.473001 [debug]: Finished rendering [  0.00s] model intermediate.int_location__enriched [success]
+04:27:43.473006 [debug]: Started analyzing model intermediate.int_location__enriched
+04:27:43.473012 [debug]: Finished rendering [  0.00s] model marts.fct_race_replay [success]
+04:27:43.473018 [debug]: Started analyzing model marts.fct_race_replay
+04:27:43.473024 [debug]: Finished rendering [  0.00s] model intermediate.int_laps__enriched [success]
+04:27:43.473028 [debug]: Started analyzing model intermediate.int_laps__enriched
+04:27:43.473037 [debug]: Finished rendering [  0.00s] model marts.fct_laps [success]
+04:27:43.473041 [info ]: Finished rendering [  0.00s] (11 nodes, 0 skipped, 0 errors)
+04:27:43.473046 [debug]: Started analyzing model marts.fct_laps
+04:27:43.473194 [info ]:  Succeeded [  0.00s] model marts.fct_starting_grid (table)
+04:27:43.473234 [debug]: Finished analyzing [  0.00s] model marts.fct_starting_grid [success]
+04:27:43.473246 [info ]:  Succeeded [  0.00s] model marts.dim_drivers (table)
+04:27:43.473258 [debug]: Finished analyzing [  0.00s] model marts.dim_drivers [success]
+04:27:43.473264 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__drivers (view)
+04:27:43.473270 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__drivers [success]
+04:27:43.473275 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__starting_grid (view)
+04:27:43.473283 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:27:43.473289 [info ]:  Succeeded [  0.00s] model marts.fct_laps (table)
+04:27:43.473296 [debug]: Finished analyzing [  0.00s] model marts.fct_laps [success]
+04:27:43.473301 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__laps (view)
+04:27:43.473306 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__laps [success]
+04:27:43.473311 [info ]:  Succeeded [  0.00s] model marts.fct_race_replay (table)
+04:27:43.473316 [debug]: Finished analyzing [  0.00s] model marts.fct_race_replay [success]
+04:27:43.473321 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__location (view)
+04:27:43.473326 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__location [success]
+04:27:43.473392 [info ]:  Succeeded [  0.00s] model intermediate.int_location__enriched (view)
+04:27:43.473409 [debug]: Finished analyzing [  0.00s] model intermediate.int_location__enriched [success]
+04:27:43.473501 [info ]:  Succeeded [  0.00s] model intermediate.int_laps__enriched (view)
+04:27:43.473519 [debug]: Finished analyzing [  0.00s] model intermediate.int_laps__enriched [success]
+04:27:43.473556 [info ]:  Succeeded [  0.00s] model intermediate.int_starting_grid__enriched (view)
+04:27:43.473583 [debug]: Finished analyzing [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:27:43.473595 [info ]: Finished analyzing [  0.00s] (11 nodes, 0 skipped, 0 errors)
+04:27:43.476503 [info ]: Started scheduling
+04:27:43.476542 [info ]: Finished scheduling [  0.00s]
+04:27:43.478462 [info ]: Cached model count updated: 11 models (accurate)
+04:28:40.878962 [info ]: Started loading project
+04:28:40.879451 [info ]: Loading ~/.dbt/profiles.yml
+04:28:40.882717 [info ]: Started loading project
+04:28:40.883050 [info ]: Loading ~/.dbt/profiles.yml
+04:28:40.883073 [info ]: Finished loading project [  0.00s]
+04:28:40.887205 [info ]:    Started resolving packages from packages.yml
+04:28:40.985110 [info ]:   Finished [  0.10s] resolving packages from packages.yml (1 items)
+04:28:40.985268 [debug]:    Started loading packages
+04:28:40.989962 [debug]:     Loaded [  0.00s] packages
+04:28:40.990421 [info ]: Finished loading project [  0.11s]
+04:28:40.990595 [info ]: Started parsing
+04:28:41.016354 [debug]: Finished parsing models\marts\marts.yml [  0.00s]
+04:28:41.016507 [debug]: Finished parsing models\staging\sources.yml [  0.00s]
+04:28:41.017695 [debug]: Finished parsing models\intermediate\int_laps__enriched.sql [  0.00s]
+04:28:41.018053 [debug]: Finished parsing models\intermediate\int_location__enriched.sql [  0.00s]
+04:28:41.018408 [debug]: Finished parsing models\intermediate\int_starting_grid__enriched.sql [  0.00s]
+04:28:41.018705 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.00s]
+04:28:41.019010 [debug]: Finished parsing models\marts\fct_laps.sql [  0.00s]
+04:28:41.019476 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.00s]
+04:28:41.019954 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.00s]
+04:28:41.020502 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.00s]
+04:28:41.020895 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.00s]
+04:28:41.021324 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.00s]
+04:28:41.021669 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.00s]
+04:28:41.024748 [debug]: Finished parsing models\staging\stg_openf1_car_data.sql [  0.00s]
+04:28:41.025703 [info ]: Finished parsing [  0.04s]
+04:28:41.026203 [info ]: Cached model count updated: 12 models (estimate)
+04:28:41.026214 [info ]: Cached model count updated: 12 models (accurate)
+04:28:41.026238 [info ]: Started scheduling
+04:28:41.026269 [info ]: Finished scheduling [  0.00s]
+04:28:41.026277 [debug]: Compilation - 0 nodes selected: {}
+04:28:41.026285 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:28:41.026289 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:28:41.026294 [info ]: Started scheduling
+04:28:41.026375 [info ]: Finished scheduling [  0.00s]
+04:28:41.026415 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "location" }) and interval: None
+04:28:41.026516 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "drivers" }) and interval: None
+04:28:41.026585 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "laps" }) and interval: None
+04:28:41.026638 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "starting_grid" }) and interval: None
+04:28:41.147204 [info ]: Started building task graph
+04:28:41.147231 [info ]: Finished building task graph [  0.00s]
+04:28:41.149687 [info ]: Started scheduling
+04:28:41.149727 [info ]: Finished scheduling [  0.00s]
+04:28:41.152430 [info ]: Cached model count updated: 12 models (accurate)
+04:28:41.964722 [info ]: Started loading project
+04:28:41.965174 [info ]: Loading ~/.dbt/profiles.yml
+04:28:41.969278 [info ]: Started parsing
+04:28:41.984207 [info ]: Finished loading project [  0.02s]
+04:28:41.986224 [info ]: Finished parsing [  0.02s]
+04:28:41.987342 [info ]: Cached model count updated: 12 models (estimate)
+04:28:41.987353 [info ]: Cached model count updated: 12 models (accurate)
+04:28:41.987378 [info ]: Started scheduling
+04:28:41.987429 [info ]: Finished scheduling [  0.00s]
+04:28:41.987438 [debug]: Compilation - 0 nodes selected: {}
+04:28:41.987453 [warn ]: dbt1600: The selection criterion 'fqn:model.openf1_dbt.stg_openf1_car_data' does not match any enabled nodes
+04:28:41.987456 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:28:42.108451 [info ]: Started building task graph
+04:28:42.108477 [info ]: Finished building task graph [  0.00s]
+04:28:42.110944 [info ]: Started scheduling
+04:28:42.110981 [info ]: Finished scheduling [  0.00s]
+04:28:42.111441 [info ]: Cached model count updated: 12 models (accurate)
+04:28:42.778424 [info ]: Started loading project
+04:28:42.778822 [info ]: Loading ~/.dbt/profiles.yml
+04:28:42.782771 [info ]: Started parsing
+04:28:42.797552 [info ]: Finished loading project [  0.02s]
+04:28:42.799595 [info ]: Finished parsing [  0.02s]
+04:28:42.800778 [info ]: Cached model count updated: 12 models (estimate)
+04:28:42.800789 [info ]: Cached model count updated: 12 models (accurate)
+04:28:42.800815 [info ]: Started scheduling
+04:28:42.800866 [info ]: Finished scheduling [  0.00s]
+04:28:42.800875 [debug]: Compilation - 0 nodes selected: {}
+04:28:42.800884 [warn ]: dbt1600: The selection criterion 'fqn:model.openf1_dbt.stg_openf1_car_data' does not match any enabled nodes
+04:28:42.800887 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:28:42.916837 [info ]: Started building task graph
+04:28:42.916862 [info ]: Finished building task graph [  0.00s]
+04:28:42.919329 [info ]: Started scheduling
+04:28:42.919366 [info ]: Finished scheduling [  0.00s]
+04:28:42.919836 [info ]: Cached model count updated: 12 models (accurate)
+04:28:42.941938 [info ]: Waiting for lease on 'target' directory
+04:28:43.391792 [info ]: Cached model count updated: 12 models (accurate)
+04:28:43.392882 [info ]: Waiting for lease on 'target' directory
+04:28:43.958829 [info ]: Started loading project
+04:28:43.959247 [info ]: Loading ~/.dbt/profiles.yml
+04:28:43.963254 [info ]: Started parsing
+04:28:43.978105 [info ]: Finished loading project [  0.02s]
+04:28:43.987318 [debug]: Finished parsing models\staging\stg_openf1_car_data.sql [  0.01s]
+04:28:43.988264 [info ]: Finished parsing [  0.03s]
+04:28:43.989566 [info ]: Cached model count updated: 12 models (estimate)
+04:28:43.989599 [info ]: Cached model count updated: 12 models (accurate)
+04:28:43.989627 [info ]: Started scheduling
+04:28:43.989670 [info ]: Finished scheduling [  0.00s]
+04:28:43.989679 [debug]: Compilation - 0 nodes selected: {}
+04:28:43.989688 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:28:43.989693 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:28:44.113776 [info ]: Started building task graph
+04:28:44.113809 [info ]: Finished building task graph [  0.00s]
+04:28:44.116710 [info ]: Started scheduling
+04:28:44.116797 [info ]: Finished scheduling [  0.00s]
+04:28:44.118370 [info ]: Cached model count updated: 12 models (accurate)
+04:28:45.681124 [info ]: Started loading project
+04:28:45.681606 [info ]: Loading ~/.dbt/profiles.yml
+04:28:45.685496 [info ]: Started parsing
+04:28:45.699720 [info ]: Finished loading project [  0.02s]
+04:28:45.701896 [info ]: Finished parsing [  0.02s]
+04:28:45.703024 [info ]: Cached model count updated: 12 models (estimate)
+04:28:45.703034 [info ]: Cached model count updated: 12 models (accurate)
+04:28:45.703057 [info ]: Started scheduling
+04:28:45.703088 [info ]: Finished scheduling [  0.00s]
+04:28:45.703097 [info ]: Started scheduling
+04:28:45.703161 [info ]: Finished scheduling [  0.00s]
+04:28:45.703169 [debug]: Compilation - 12 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.fct_starting_grid", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__drivers", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location", "model.openf1_dbt.stg_openf1__starting_grid", "model.openf1_dbt.stg_openf1_car_data"}
+04:28:45.849243 [info ]: Started building task graph
+04:28:45.849372 [info ]: Finished building task graph [  0.00s]
+04:28:45.849553 [info ]: Started rendering (12 nodes)
+04:28:45.849576 [info ]: Started model staging.stg_openf1_car_data
+04:28:45.849586 [debug]: Started rendering model staging.stg_openf1_car_data
+04:28:45.849610 [info ]: Started model marts.fct_starting_grid
+04:28:45.849617 [debug]: Started rendering model marts.fct_starting_grid
+04:28:45.849628 [info ]: Started model intermediate.int_starting_grid__enriched
+04:28:45.849635 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+04:28:45.849646 [info ]: Started model staging.stg_openf1__starting_grid
+04:28:45.849655 [debug]: Started rendering model staging.stg_openf1__starting_grid
+04:28:45.849666 [info ]: Started model marts.fct_race_replay
+04:28:45.849672 [debug]: Started rendering model marts.fct_race_replay
+04:28:45.849682 [info ]: Started model intermediate.int_location__enriched
+04:28:45.849689 [debug]: Started rendering model intermediate.int_location__enriched
+04:28:45.849699 [info ]: Started model staging.stg_openf1__location
+04:28:45.851237 [debug]: Started rendering model staging.stg_openf1__location
+04:28:45.851471 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1_car_data at target\.lsp\compiled\models\staging\stg_openf1_car_data.sql
+04:28:45.851958 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+04:28:45.852905 [info ]: Started model marts.fct_laps
+04:28:45.852932 [debug]: Started rendering model marts.fct_laps
+04:28:45.852982 [info ]: Started model intermediate.int_laps__enriched
+04:28:45.852994 [debug]: Started rendering model intermediate.int_laps__enriched
+04:28:45.854149 [debug]: Compiled SQL for node model.openf1_dbt.fct_race_replay at target\.lsp\compiled\models\marts\fct_race_replay.sql
+04:28:45.856789 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__location at target\.lsp\compiled\models\staging\stg_openf1__location.sql
+04:28:45.857007 [debug]: Compiled SQL for node model.openf1_dbt.int_location__enriched at target\.lsp\compiled\models\intermediate\int_location__enriched.sql
+04:28:45.857372 [debug]: Compiled SQL for node model.openf1_dbt.fct_laps at target\.lsp\compiled\models\marts\fct_laps.sql
+04:28:45.857489 [info ]: Started model staging.stg_openf1__laps
+04:28:45.857511 [debug]: Started rendering model staging.stg_openf1__laps
+04:28:45.857533 [info ]: Started model marts.dim_drivers
+04:28:45.857542 [debug]: Started rendering model marts.dim_drivers
+04:28:45.857556 [info ]: Started model staging.stg_openf1__drivers
+04:28:45.857563 [debug]: Started rendering model staging.stg_openf1__drivers
+04:28:45.857585 [debug]: Finished rendering [  0.01s] model staging.stg_openf1_car_data [success]
+04:28:45.857603 [info ]: Started analyzing (12 nodes)
+04:28:45.857612 [debug]: Started analyzing model staging.stg_openf1_car_data
+04:28:45.857626 [debug]: Finished rendering [  0.01s] model marts.fct_starting_grid [success]
+04:28:45.857637 [debug]: Started analyzing model marts.fct_starting_grid
+04:28:45.857649 [debug]: Finished rendering [  0.01s] model marts.fct_race_replay [success]
+04:28:45.857658 [debug]: Started analyzing model marts.fct_race_replay
+04:28:45.857669 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__location [success]
+04:28:45.857677 [debug]: Started analyzing model staging.stg_openf1__location
+04:28:45.857688 [debug]: Finished rendering [  0.01s] model intermediate.int_location__enriched [success]
+04:28:45.857696 [debug]: Started analyzing model intermediate.int_location__enriched
+04:28:45.857706 [debug]: Finished rendering [  0.00s] model marts.fct_laps [success]
+04:28:45.857715 [debug]: Started analyzing model marts.fct_laps
+04:28:45.857909 [info ]:  Succeeded [  0.01s] model marts.fct_race_replay (table)
+04:28:45.857934 [debug]: Finished analyzing [  0.00s] model marts.fct_race_replay [success]
+04:28:45.857974 [info ]:  Succeeded [  0.00s] model marts.fct_laps (table)
+04:28:45.857988 [debug]: Finished analyzing [  0.00s] model marts.fct_laps [success]
+04:28:45.858087 [info ]:  Succeeded [  0.01s] model staging.stg_openf1__location (view)
+04:28:45.858103 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__location [success]
+04:28:45.858118 [info ]:  Succeeded [  0.01s] model marts.fct_starting_grid (table)
+04:28:45.858128 [debug]: Finished analyzing [  0.00s] model marts.fct_starting_grid [success]
+04:28:45.858156 [info ]:  Succeeded [  0.01s] model intermediate.int_location__enriched (view)
+04:28:45.858174 [debug]: Finished analyzing [  0.00s] model intermediate.int_location__enriched [success]
+04:28:45.858188 [info ]:  Succeeded [  0.01s] model staging.stg_openf1_car_data (view)
+04:28:45.858199 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1_car_data [success]
+04:28:45.858821 [debug]: Compiled SQL for node model.openf1_dbt.int_laps__enriched at target\.lsp\compiled\models\intermediate\int_laps__enriched.sql
+04:28:45.858989 [debug]: Finished rendering [  0.01s] model intermediate.int_laps__enriched [success]
+04:28:45.859024 [debug]: Started analyzing model intermediate.int_laps__enriched
+04:28:45.859659 [info ]:  Succeeded [  0.01s] model intermediate.int_laps__enriched (view)
+04:28:45.859681 [debug]: Finished analyzing [  0.00s] model intermediate.int_laps__enriched [success]
+04:28:45.860572 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+04:28:45.860759 [debug]: Finished rendering [  0.01s] model intermediate.int_starting_grid__enriched [success]
+04:28:45.860802 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+04:28:45.861499 [info ]:  Succeeded [  0.01s] model intermediate.int_starting_grid__enriched (view)
+04:28:45.861532 [debug]: Finished analyzing [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:28:45.862612 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__laps at target\.lsp\compiled\models\staging\stg_openf1__laps.sql
+04:28:45.862757 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__laps [success]
+04:28:45.862797 [debug]: Started analyzing model staging.stg_openf1__laps
+04:28:45.862833 [debug]: Compiled SQL for node model.openf1_dbt.dim_drivers at target\.lsp\compiled\models\marts\dim_drivers.sql
+04:28:45.862987 [debug]: Finished rendering [  0.01s] model marts.dim_drivers [success]
+04:28:45.863020 [debug]: Started analyzing model marts.dim_drivers
+04:28:45.863091 [info ]:  Succeeded [  0.01s] model staging.stg_openf1__laps (view)
+04:28:45.863112 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__laps [success]
+04:28:45.863232 [info ]:  Succeeded [  0.01s] model marts.dim_drivers (table)
+04:28:45.863262 [debug]: Finished analyzing [  0.00s] model marts.dim_drivers [success]
+04:28:45.863420 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__drivers at target\.lsp\compiled\models\staging\stg_openf1__drivers.sql
+04:28:45.864588 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__starting_grid at target\.lsp\compiled\models\staging\stg_openf1__starting_grid.sql
+04:28:45.867833 [debug]: Finished rendering [  0.01s] model staging.stg_openf1__drivers [success]
+04:28:45.867872 [debug]: Started analyzing model staging.stg_openf1__drivers
+04:28:45.868169 [info ]:  Succeeded [  0.01s] model staging.stg_openf1__drivers (view)
+04:28:45.868194 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__drivers [success]
+04:28:45.868229 [debug]: Finished rendering [  0.02s] model staging.stg_openf1__starting_grid [success]
+04:28:45.868236 [info ]: Finished rendering [  0.02s] (12 nodes, 0 skipped, 0 errors)
+04:28:45.868249 [debug]: Started analyzing model staging.stg_openf1__starting_grid
+04:28:45.868457 [info ]:  Succeeded [  0.02s] model staging.stg_openf1__starting_grid (view)
+04:28:45.868503 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:28:45.868512 [info ]: Finished analyzing [  0.01s] (12 nodes, 0 skipped, 0 errors)
+04:28:45.873941 [info ]: Started scheduling
+04:28:45.874078 [info ]: Finished scheduling [  0.00s]
+04:28:45.878371 [info ]: Cached model count updated: 12 models (accurate)
+04:30:02.697104 [info ]: Started loading project
+04:30:02.697611 [info ]: Loading ~/.dbt/profiles.yml
+04:30:02.700720 [info ]: Started loading project
+04:30:02.701042 [info ]: Loading ~/.dbt/profiles.yml
+04:30:02.701073 [info ]: Finished loading project [  0.00s]
+04:30:02.704645 [info ]:    Started resolving packages from packages.yml
+04:30:02.798040 [info ]:   Finished [  0.09s] resolving packages from packages.yml (1 items)
+04:30:02.798189 [debug]:    Started loading packages
+04:30:02.803302 [debug]:     Loaded [  0.01s] packages
+04:30:02.803769 [info ]: Finished loading project [  0.10s]
+04:30:02.803967 [info ]: Started parsing
+04:30:02.830077 [debug]: Finished parsing models\marts\marts.yml [  0.00s]
+04:30:02.830374 [debug]: Finished parsing models\staging\sources.yml [  0.00s]
+04:30:02.831875 [debug]: Finished parsing models\intermediate\int_laps__enriched.sql [  0.00s]
+04:30:02.832240 [debug]: Finished parsing models\intermediate\int_location__enriched.sql [  0.00s]
+04:30:02.832600 [debug]: Finished parsing models\intermediate\int_starting_grid__enriched.sql [  0.00s]
+04:30:02.832869 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.00s]
+04:30:02.833139 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:30:02.833460 [debug]: Finished parsing models\marts\fct_laps.sql [  0.00s]
+04:30:02.833746 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.00s]
+04:30:02.834071 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.00s]
+04:30:02.834385 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.00s]
+04:30:02.834711 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.00s]
+04:30:02.835111 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.00s]
+04:30:02.835440 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.00s]
+04:30:02.838718 [debug]: Finished parsing models\staging\stg_openf1_car_data.sql [  0.00s]
+04:30:02.839497 [info ]: Finished parsing [  0.04s]
+04:30:02.840046 [info ]: Cached model count updated: 13 models (estimate)
+04:30:02.840056 [info ]: Cached model count updated: 13 models (accurate)
+04:30:02.840083 [info ]: Started scheduling
+04:30:02.840126 [info ]: Finished scheduling [  0.00s]
+04:30:02.840136 [debug]: Compilation - 0 nodes selected: {}
+04:30:02.840146 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:30:02.840151 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:30:02.840156 [info ]: Started scheduling
+04:30:02.840227 [info ]: Finished scheduling [  0.00s]
+04:30:02.840267 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "laps" }) and interval: None
+04:30:02.840310 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "car_data" }) and interval: None
+04:30:02.840344 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "drivers" }) and interval: None
+04:30:02.840371 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "location" }) and interval: None
+04:30:02.840397 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "starting_grid" }) and interval: None
+04:30:02.966912 [info ]: Started building task graph
+04:30:02.966944 [info ]: Finished building task graph [  0.00s]
+04:30:02.969542 [info ]: Started scheduling
+04:30:02.969584 [info ]: Finished scheduling [  0.00s]
+04:30:02.971709 [info ]: Cached model count updated: 13 models (accurate)
+04:30:03.421786 [info ]: Started loading project
+04:30:03.422204 [info ]: Loading ~/.dbt/profiles.yml
+04:30:03.426383 [info ]: Started parsing
+04:30:03.440905 [info ]: Finished loading project [  0.02s]
+04:30:03.443292 [info ]: Finished parsing [  0.02s]
+04:30:03.444591 [info ]: Cached model count updated: 13 models (estimate)
+04:30:03.444603 [info ]: Cached model count updated: 13 models (accurate)
+04:30:03.444632 [info ]: Started scheduling
+04:30:03.444683 [info ]: Finished scheduling [  0.00s]
+04:30:03.444693 [debug]: Compilation - 0 nodes selected: {}
+04:30:03.444702 [warn ]: dbt1600: The selection criterion 'fqn:model.openf1_dbt.fct_car_telemetry' does not match any enabled nodes
+04:30:03.444706 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:30:03.570453 [info ]: Started building task graph
+04:30:03.570481 [info ]: Finished building task graph [  0.00s]
+04:30:03.573279 [info ]: Started scheduling
+04:30:03.573321 [info ]: Finished scheduling [  0.00s]
+04:30:03.573809 [info ]: Cached model count updated: 13 models (accurate)
+04:30:04.207152 [info ]: Started loading project
+04:30:04.207560 [info ]: Loading ~/.dbt/profiles.yml
+04:30:04.211505 [info ]: Started parsing
+04:30:04.225999 [info ]: Finished loading project [  0.02s]
+04:30:04.228053 [info ]: Finished parsing [  0.02s]
+04:30:04.229248 [info ]: Cached model count updated: 13 models (estimate)
+04:30:04.229260 [info ]: Cached model count updated: 13 models (accurate)
+04:30:04.229287 [info ]: Started scheduling
+04:30:04.229338 [info ]: Finished scheduling [  0.00s]
+04:30:04.229347 [debug]: Compilation - 0 nodes selected: {}
+04:30:04.229356 [warn ]: dbt1600: The selection criterion 'fqn:model.openf1_dbt.fct_car_telemetry' does not match any enabled nodes
+04:30:04.229359 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:30:04.346325 [info ]: Started building task graph
+04:30:04.346352 [info ]: Finished building task graph [  0.00s]
+04:30:04.348729 [info ]: Started scheduling
+04:30:04.348774 [info ]: Finished scheduling [  0.00s]
+04:30:04.349254 [info ]: Cached model count updated: 13 models (accurate)
+04:30:04.404740 [info ]: Waiting for lease on 'target' directory
+04:30:04.741274 [info ]: Started loading project
+04:30:04.741664 [info ]: Loading ~/.dbt/profiles.yml
+04:30:04.745498 [info ]: Started parsing
+04:30:04.759544 [info ]: Finished loading project [  0.02s]
+04:30:04.761615 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:30:04.763759 [error]: dbt1005: Ref 'stg_openf1__car_data' not found in project. Searched for 'openf1_dbt.stg_openf1__car_data, stg_openf1__car_data'
+  --> models\marts\fct_car_telemetry.sql:5:9
+04:30:04.765657 [info ]: Cached model count updated: 13 models (estimate)
+04:30:04.765669 [info ]: Cached model count updated: 13 models (accurate)
+04:30:04.765700 [info ]: Started scheduling
+04:30:04.765783 [info ]: Finished scheduling [  0.00s]
+04:30:04.765795 [debug]: Compilation - 4 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_car_telemetry", "model.openf1_dbt.stg_openf1__drivers", "model.openf1_dbt.stg_openf1_car_data"}
+04:30:04.882962 [info ]: Started building task graph
+04:30:04.883020 [info ]: Finished building task graph [  0.00s]
+04:30:04.887003 [info ]: Cached model count updated: 13 models (accurate)
+04:30:04.887032 [info ]: Finished parsing [  0.14s]
+04:30:04.888420 [info ]: Waiting for lease on 'target' directory
+04:30:05.337096 [info ]: Started loading project
+04:30:05.337521 [info ]: Loading ~/.dbt/profiles.yml
+04:30:05.341611 [info ]: Started parsing
+04:30:05.356056 [info ]: Finished loading project [  0.02s]
+04:30:05.358053 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:30:05.358289 [error]: dbt1005: Ref 'stg_openf1__car_data' not found in project. Searched for 'openf1_dbt.stg_openf1__car_data, stg_openf1__car_data'
+  --> models\marts\fct_car_telemetry.sql:5:9
+04:30:05.359904 [info ]: Cached model count updated: 13 models (estimate)
+04:30:05.359914 [info ]: Cached model count updated: 13 models (accurate)
+04:30:05.359937 [info ]: Started scheduling
+04:30:05.359969 [info ]: Finished scheduling [  0.00s]
+04:30:05.359977 [debug]: Compilation - 0 nodes selected: {}
+04:30:05.359984 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:30:05.359987 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:30:05.480738 [info ]: Started building task graph
+04:30:05.480773 [info ]: Finished building task graph [  0.00s]
+04:30:05.484025 [info ]: Started scheduling
+04:30:05.484125 [info ]: Finished scheduling [  0.00s]
+04:30:05.487536 [info ]: Cached model count updated: 13 models (accurate)
+04:30:05.487585 [info ]: Finished parsing [  0.15s]
+04:30:05.785670 [info ]: Waiting for lease on 'target' directory
+04:30:05.903118 [info ]: Started loading project
+04:30:05.903582 [info ]: Loading ~/.dbt/profiles.yml
+04:30:05.907740 [info ]: Started parsing
+04:30:05.923045 [info ]: Finished loading project [  0.02s]
+04:30:05.925308 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:30:05.925610 [error]: dbt1005: Ref 'stg_openf1__car_data' not found in project. Searched for 'openf1_dbt.stg_openf1__car_data, stg_openf1__car_data'
+  --> models\marts\fct_car_telemetry.sql:5:9
+04:30:05.927415 [info ]: Cached model count updated: 13 models (estimate)
+04:30:05.927429 [info ]: Cached model count updated: 13 models (accurate)
+04:30:05.927460 [info ]: Started scheduling
+04:30:05.927531 [info ]: Finished scheduling [  0.00s]
+04:30:05.927541 [debug]: Compilation - 3 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_car_telemetry", "model.openf1_dbt.stg_openf1__drivers"}
+04:30:06.045959 [info ]: Started building task graph
+04:30:06.046008 [info ]: Finished building task graph [  0.00s]
+04:30:06.046107 [info ]: Started rendering (3 nodes)
+04:30:06.046122 [info ]: Started model marts.fct_car_telemetry
+04:30:06.046133 [debug]: Started rendering model marts.fct_car_telemetry
+04:30:06.046150 [info ]: Started model marts.dim_drivers
+04:30:06.046156 [debug]: Started rendering model marts.dim_drivers
+04:30:06.046163 [info ]: Started model staging.stg_openf1__drivers
+04:30:06.046166 [debug]: Started rendering model staging.stg_openf1__drivers
+04:30:06.046183 [info ]: Finished parsing [  0.14s]
+04:30:06.047212 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__drivers at target\.lsp\compiled\models\staging\stg_openf1__drivers.sql
+04:30:06.047236 [debug]: Compiled SQL for node model.openf1_dbt.dim_drivers at target\.lsp\compiled\models\marts\dim_drivers.sql
+04:30:06.047340 [error]: dbt1501: Failed to render SQL not a key type: ref not found for package: openf1_dbt, model: stg_openf1__car_data, version: None
+(in models\marts\fct_car_telemetry.sql:5:9)
+  --> models\marts\fct_car_telemetry.sql:5:9
+04:30:06.047559 [info ]: Started analyzing (3 nodes)
+04:30:06.047573 [debug]: Started analyzing model marts.fct_car_telemetry
+04:30:06.047590 [info ]:     Failed [  0.00s] model marts.fct_car_telemetry (table)
+04:30:06.047605 [debug]: Finished analyzing [  0.00s] model marts.fct_car_telemetry [skipped]
+04:30:06.047617 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__drivers [success]
+04:30:06.047623 [debug]: Started analyzing model staging.stg_openf1__drivers
+04:30:06.047636 [debug]: Finished rendering [  0.00s] model marts.dim_drivers [success]
+04:30:06.047643 [debug]: Started analyzing model marts.dim_drivers
+04:30:06.047664 [debug]: Finished rendering [  0.00s] model marts.fct_car_telemetry [error]
+04:30:06.047680 [info ]: Finished rendering [  0.00s] (3 nodes, 0 skipped, 1 errors)
+04:30:06.047842 [info ]:  Succeeded [  0.00s] model marts.dim_drivers (table)
+04:30:06.047853 [debug]: Finished analyzing [  0.00s] model marts.dim_drivers [success]
+04:30:06.047860 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__drivers (view)
+04:30:06.047866 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__drivers [success]
+04:30:06.047869 [info ]: Finished analyzing [  0.00s] (3 nodes, 1 skipped, 0 errors)
+04:30:06.050445 [info ]: Started scheduling
+04:30:06.050491 [info ]: Finished scheduling [  0.00s]
+04:30:06.051035 [info ]: Cached model count updated: 13 models (accurate)
+04:30:07.603754 [info ]: Started loading project
+04:30:07.604327 [info ]: Loading ~/.dbt/profiles.yml
+04:30:07.608561 [info ]: Started parsing
+04:30:07.625199 [info ]: Finished loading project [  0.02s]
+04:30:07.628034 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:30:07.628405 [error]: dbt1005: Ref 'stg_openf1__car_data' not found in project. Searched for 'openf1_dbt.stg_openf1__car_data, stg_openf1__car_data'
+  --> models\marts\fct_car_telemetry.sql:5:9
+04:30:07.631839 [info ]: Cached model count updated: 13 models (estimate)
+04:30:07.631857 [info ]: Cached model count updated: 13 models (accurate)
+04:30:07.631911 [info ]: Started scheduling
+04:30:07.632004 [info ]: Finished scheduling [  0.00s]
+04:30:07.632018 [debug]: Compilation - 1 nodes selected: {"model.openf1_dbt.fct_car_telemetry"}
+04:30:07.757463 [info ]: Started building task graph
+04:30:07.757500 [info ]: Finished building task graph [  0.00s]
+04:30:07.757579 [info ]: Started rendering (1 nodes)
+04:30:07.757592 [info ]: Started model marts.fct_car_telemetry
+04:30:07.757601 [debug]: Started rendering model marts.fct_car_telemetry
+04:30:07.757635 [info ]: Finished parsing [  0.15s]
+04:30:07.758067 [error]: dbt1501: Failed to render SQL not a key type: ref not found for package: openf1_dbt, model: stg_openf1__car_data, version: None
+(in models\marts\fct_car_telemetry.sql:5:9)
+  --> models\marts\fct_car_telemetry.sql:5:9
+04:30:07.758099 [info ]: Started analyzing (1 nodes)
+04:30:07.758106 [debug]: Started analyzing model marts.fct_car_telemetry
+04:30:07.758117 [info ]:     Failed [-------] model marts.fct_car_telemetry (table)
+04:30:07.758130 [debug]: Finished analyzing [  0.00s] model marts.fct_car_telemetry [skipped]
+04:30:07.758136 [info ]: Finished analyzing [  0.00s] (1 nodes, 1 skipped, 0 errors)
+04:30:07.760717 [info ]: Started scheduling
+04:30:07.760766 [info ]: Finished scheduling [  0.00s]
+04:30:07.762918 [info ]: Cached model count updated: 13 models (accurate)
+04:30:07.762950 [debug]: Finished rendering [  0.01s] model marts.fct_car_telemetry [error]
+04:30:07.762962 [info ]: Finished rendering [  0.01s] (1 nodes, 0 skipped, 1 errors)
+04:30:09.329945 [info ]: Started loading project
+04:30:09.330536 [info ]: Loading ~/.dbt/profiles.yml
+04:30:09.334945 [info ]: Started parsing
+04:30:09.350197 [info ]: Finished loading project [  0.02s]
+04:30:09.352391 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:30:09.352551 [error]: dbt1005: Ref 'stg_openf1__car_data' not found in project. Searched for 'openf1_dbt.stg_openf1__car_data, stg_openf1__car_data'
+  --> models\marts\fct_car_telemetry.sql:5:9
+04:30:09.354111 [info ]: Cached model count updated: 13 models (estimate)
+04:30:09.354121 [info ]: Cached model count updated: 13 models (accurate)
+04:30:09.354143 [info ]: Started scheduling
+04:30:09.354172 [info ]: Finished scheduling [  0.00s]
+04:30:09.354180 [info ]: Started scheduling
+04:30:09.354248 [info ]: Finished scheduling [  0.00s]
+04:30:09.354256 [debug]: Compilation - 10 nodes selected: {"model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.fct_starting_grid", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location", "model.openf1_dbt.stg_openf1__starting_grid", "model.openf1_dbt.stg_openf1_car_data"}
+04:30:09.470107 [info ]: Started building task graph
+04:30:09.470218 [info ]: Finished building task graph [  0.00s]
+04:30:09.470337 [info ]: Started rendering (10 nodes)
+04:30:09.470353 [info ]: Started model staging.stg_openf1_car_data
+04:30:09.470360 [debug]: Started rendering model staging.stg_openf1_car_data
+04:30:09.470377 [info ]: Started model marts.fct_starting_grid
+04:30:09.470381 [debug]: Started rendering model marts.fct_starting_grid
+04:30:09.470387 [info ]: Started model intermediate.int_starting_grid__enriched
+04:30:09.470390 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+04:30:09.470414 [info ]: Started model staging.stg_openf1__starting_grid
+04:30:09.470417 [debug]: Started rendering model staging.stg_openf1__starting_grid
+04:30:09.470422 [info ]: Started model marts.fct_race_replay
+04:30:09.470425 [debug]: Started rendering model marts.fct_race_replay
+04:30:09.470430 [info ]: Started model intermediate.int_location__enriched
+04:30:09.470433 [debug]: Started rendering model intermediate.int_location__enriched
+04:30:09.470437 [info ]: Started model staging.stg_openf1__location
+04:30:09.470440 [debug]: Started rendering model staging.stg_openf1__location
+04:30:09.470445 [info ]: Started model marts.fct_laps
+04:30:09.470448 [debug]: Started rendering model marts.fct_laps
+04:30:09.470459 [info ]: Started model intermediate.int_laps__enriched
+04:30:09.470462 [debug]: Started rendering model intermediate.int_laps__enriched
+04:30:09.470466 [info ]: Started model staging.stg_openf1__laps
+04:30:09.470469 [debug]: Started rendering model staging.stg_openf1__laps
+04:30:09.470496 [info ]: Finished parsing [  0.14s]
+04:30:09.471856 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+04:30:09.471954 [debug]: Finished rendering [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:30:09.471985 [info ]: Started analyzing (10 nodes)
+04:30:09.472007 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+04:30:09.472203 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__starting_grid at target\.lsp\compiled\models\staging\stg_openf1__starting_grid.sql
+04:30:09.472284 [debug]: Compiled SQL for node model.openf1_dbt.int_location__enriched at target\.lsp\compiled\models\intermediate\int_location__enriched.sql
+04:30:09.472275 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:30:09.472318 [debug]: Started analyzing model staging.stg_openf1__starting_grid
+04:30:09.472364 [debug]: Finished rendering [  0.00s] model intermediate.int_location__enriched [success]
+04:30:09.472386 [debug]: Started analyzing model intermediate.int_location__enriched
+04:30:09.472476 [info ]:  Succeeded [  0.00s] model intermediate.int_starting_grid__enriched (view)
+04:30:09.472501 [debug]: Finished analyzing [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:30:09.472514 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__starting_grid (view)
+04:30:09.472523 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:30:09.472624 [debug]: Compiled SQL for node model.openf1_dbt.int_laps__enriched at target\.lsp\compiled\models\intermediate\int_laps__enriched.sql
+04:30:09.472698 [debug]: Finished rendering [  0.00s] model intermediate.int_laps__enriched [success]
+04:30:09.472720 [debug]: Started analyzing model intermediate.int_laps__enriched
+04:30:09.472744 [info ]:  Succeeded [  0.00s] model intermediate.int_location__enriched (view)
+04:30:09.472760 [debug]: Finished analyzing [  0.00s] model intermediate.int_location__enriched [success]
+04:30:09.472975 [debug]: Compiled SQL for node model.openf1_dbt.fct_race_replay at target\.lsp\compiled\models\marts\fct_race_replay.sql
+04:30:09.473055 [debug]: Compiled SQL for node model.openf1_dbt.fct_laps at target\.lsp\compiled\models\marts\fct_laps.sql
+04:30:09.473071 [debug]: Finished rendering [  0.00s] model marts.fct_race_replay [success]
+04:30:09.473090 [debug]: Started analyzing model marts.fct_race_replay
+04:30:09.473093 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__laps at target\.lsp\compiled\models\staging\stg_openf1__laps.sql
+04:30:09.473127 [debug]: Finished rendering [  0.00s] model marts.fct_laps [success]
+04:30:09.473139 [debug]: Started analyzing model marts.fct_laps
+04:30:09.473155 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__laps [success]
+04:30:09.473164 [debug]: Started analyzing model staging.stg_openf1__laps
+04:30:09.473220 [info ]:  Succeeded [  0.00s] model intermediate.int_laps__enriched (view)
+04:30:09.473240 [debug]: Finished analyzing [  0.00s] model intermediate.int_laps__enriched [success]
+04:30:09.473254 [info ]:  Succeeded [  0.00s] model marts.fct_race_replay (table)
+04:30:09.473264 [debug]: Finished analyzing [  0.00s] model marts.fct_race_replay [success]
+04:30:09.473273 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__laps (view)
+04:30:09.473286 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__laps [success]
+04:30:09.473344 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+04:30:09.473428 [debug]: Finished rendering [  0.00s] model marts.fct_starting_grid [success]
+04:30:09.473449 [debug]: Started analyzing model marts.fct_starting_grid
+04:30:09.473469 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1_car_data at target\.lsp\compiled\models\staging\stg_openf1_car_data.sql
+04:30:09.473485 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__location at target\.lsp\compiled\models\staging\stg_openf1__location.sql
+04:30:09.473580 [info ]:  Succeeded [  0.00s] model marts.fct_starting_grid (table)
+04:30:09.473597 [debug]: Finished analyzing [  0.00s] model marts.fct_starting_grid [success]
+04:30:09.473606 [debug]: Finished rendering [  0.00s] model staging.stg_openf1_car_data [success]
+04:30:09.473613 [debug]: Started analyzing model staging.stg_openf1_car_data
+04:30:09.473628 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__location [success]
+04:30:09.473633 [info ]: Finished rendering [  0.00s] (10 nodes, 0 skipped, 0 errors)
+04:30:09.473638 [debug]: Started analyzing model staging.stg_openf1__location
+04:30:09.473652 [info ]:  Succeeded [  0.00s] model marts.fct_laps (table)
+04:30:09.473658 [debug]: Finished analyzing [  0.00s] model marts.fct_laps [success]
+04:30:09.473740 [info ]:  Succeeded [  0.00s] model staging.stg_openf1_car_data (view)
+04:30:09.473756 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1_car_data [success]
+04:30:09.473766 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__location (view)
+04:30:09.473773 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__location [success]
+04:30:09.473776 [info ]: Finished analyzing [  0.00s] (10 nodes, 0 skipped, 0 errors)
+04:30:09.476475 [info ]: Started scheduling
+04:30:09.476525 [info ]: Finished scheduling [  0.00s]
+04:30:09.478609 [info ]: Cached model count updated: 13 models (accurate)
+04:30:33.268175 [info ]: Started loading project
+04:30:33.268692 [info ]: Loading ~/.dbt/profiles.yml
+04:30:33.271826 [info ]: Started loading project
+04:30:33.272162 [info ]: Loading ~/.dbt/profiles.yml
+04:30:33.272184 [info ]: Finished loading project [  0.00s]
+04:30:33.276154 [info ]:    Started resolving packages from packages.yml
+04:30:33.349146 [info ]:   Finished [  0.07s] resolving packages from packages.yml (1 items)
+04:30:33.349315 [debug]:    Started loading packages
+04:30:33.354679 [debug]:     Loaded [  0.01s] packages
+04:30:33.355110 [info ]: Finished loading project [  0.08s]
+04:30:33.355275 [info ]: Started parsing
+04:30:33.379414 [debug]: Finished parsing models\marts\marts.yml [  0.00s]
+04:30:33.379579 [debug]: Finished parsing models\staging\sources.yml [  0.00s]
+04:30:33.380793 [debug]: Finished parsing models\intermediate\int_laps__enriched.sql [  0.00s]
+04:30:33.381163 [debug]: Finished parsing models\intermediate\int_location__enriched.sql [  0.00s]
+04:30:33.381527 [debug]: Finished parsing models\intermediate\int_starting_grid__enriched.sql [  0.00s]
+04:30:33.381822 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.00s]
+04:30:33.382119 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:30:33.382408 [debug]: Finished parsing models\marts\fct_laps.sql [  0.00s]
+04:30:33.382711 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.00s]
+04:30:33.382994 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.00s]
+04:30:33.383247 [debug]: Finished parsing models\staging\stg_openf1__car_data.sql [  0.00s]
+04:30:33.383508 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.00s]
+04:30:33.383836 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.00s]
+04:30:33.384097 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.00s]
+04:30:33.387250 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.00s]
+04:30:33.387975 [info ]: Finished parsing [  0.03s]
+04:30:33.388528 [info ]: Cached model count updated: 13 models (estimate)
+04:30:33.388539 [info ]: Cached model count updated: 13 models (accurate)
+04:30:33.388565 [info ]: Started scheduling
+04:30:33.388598 [info ]: Finished scheduling [  0.00s]
+04:30:33.388607 [debug]: Compilation - 0 nodes selected: {}
+04:30:33.388614 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:30:33.388620 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:30:33.388624 [info ]: Started scheduling
+04:30:33.388705 [info ]: Finished scheduling [  0.00s]
+04:30:33.388742 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "car_data" }) and interval: None
+04:30:33.388784 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "location" }) and interval: None
+04:30:33.388852 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "starting_grid" }) and interval: None
+04:30:33.388921 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "drivers" }) and interval: None
+04:30:33.388969 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "laps" }) and interval: None
+04:30:33.512270 [info ]: Started building task graph
+04:30:33.512299 [info ]: Finished building task graph [  0.00s]
+04:30:33.515163 [info ]: Started scheduling
+04:30:33.515213 [info ]: Finished scheduling [  0.00s]
+04:30:33.517921 [info ]: Cached model count updated: 13 models (accurate)
+04:30:33.974477 [info ]: Started loading project
+04:30:33.974916 [info ]: Loading ~/.dbt/profiles.yml
+04:30:33.979085 [info ]: Started parsing
+04:30:33.994601 [info ]: Finished loading project [  0.02s]
+04:30:33.996759 [info ]: Finished parsing [  0.02s]
+04:30:33.997943 [info ]: Cached model count updated: 13 models (estimate)
+04:30:33.997956 [info ]: Cached model count updated: 13 models (accurate)
+04:30:33.997982 [info ]: Started scheduling
+04:30:33.998055 [info ]: Finished scheduling [  0.00s]
+04:30:33.998064 [debug]: Compilation - 4 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_car_telemetry", "model.openf1_dbt.stg_openf1__car_data", "model.openf1_dbt.stg_openf1__drivers"}
+04:30:34.120666 [info ]: Started building task graph
+04:30:34.120718 [info ]: Finished building task graph [  0.00s]
+04:30:34.120820 [info ]: Started rendering (4 nodes)
+04:30:34.120834 [info ]: Started model marts.fct_car_telemetry
+04:30:34.120845 [debug]: Started rendering model marts.fct_car_telemetry
+04:30:34.120864 [info ]: Started model staging.stg_openf1__car_data
+04:30:34.120871 [debug]: Started rendering model staging.stg_openf1__car_data
+04:30:34.120877 [info ]: Started model marts.dim_drivers
+04:30:34.120883 [debug]: Started rendering model marts.dim_drivers
+04:30:34.120889 [info ]: Started model staging.stg_openf1__drivers
+04:30:34.120894 [debug]: Started rendering model staging.stg_openf1__drivers
+04:30:34.122982 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__car_data at target\.lsp\compiled\models\staging\stg_openf1__car_data.sql
+04:30:34.123004 [debug]: Compiled SQL for node model.openf1_dbt.fct_car_telemetry at target\.lsp\compiled\models\marts\fct_car_telemetry.sql
+04:30:34.123050 [debug]: Compiled SQL for node model.openf1_dbt.dim_drivers at target\.lsp\compiled\models\marts\dim_drivers.sql
+04:30:34.123091 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__car_data [success]
+04:30:34.123130 [info ]: Started analyzing (4 nodes)
+04:30:34.123142 [debug]: Started analyzing model staging.stg_openf1__car_data
+04:30:34.123163 [debug]: Finished rendering [  0.00s] model marts.fct_car_telemetry [success]
+04:30:34.123166 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__drivers at target\.lsp\compiled\models\staging\stg_openf1__drivers.sql
+04:30:34.123180 [debug]: Started analyzing model marts.fct_car_telemetry
+04:30:34.123195 [debug]: Finished rendering [  0.00s] model marts.dim_drivers [success]
+04:30:34.123206 [debug]: Started analyzing model marts.dim_drivers
+04:30:34.123230 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__drivers [success]
+04:30:34.123238 [info ]: Finished rendering [  0.00s] (4 nodes, 0 skipped, 0 errors)
+04:30:34.123245 [debug]: Started analyzing model staging.stg_openf1__drivers
+04:30:34.123338 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__car_data (view)
+04:30:34.123355 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__car_data [success]
+04:30:34.123366 [info ]:  Succeeded [  0.00s] model marts.dim_drivers (table)
+04:30:34.123374 [debug]: Finished analyzing [  0.00s] model marts.dim_drivers [success]
+04:30:34.123380 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__drivers (view)
+04:30:34.123386 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__drivers [success]
+04:30:34.124301 [info ]:  Succeeded [  0.00s] model marts.fct_car_telemetry (table)
+04:30:34.124324 [debug]: Finished analyzing [  0.00s] model marts.fct_car_telemetry [success]
+04:30:34.124330 [info ]: Finished analyzing [  0.00s] (4 nodes, 0 skipped, 0 errors)
+04:30:34.127717 [info ]: Started scheduling
+04:30:34.127768 [info ]: Finished scheduling [  0.00s]
+04:30:34.128277 [info ]: Cached model count updated: 13 models (accurate)
+04:30:35.690578 [info ]: Started loading project
+04:30:35.691190 [info ]: Loading ~/.dbt/profiles.yml
+04:30:35.695335 [info ]: Started parsing
+04:30:35.710246 [info ]: Finished loading project [  0.02s]
+04:30:35.712320 [info ]: Finished parsing [  0.02s]
+04:30:35.713506 [info ]: Cached model count updated: 13 models (estimate)
+04:30:35.713518 [info ]: Cached model count updated: 13 models (accurate)
+04:30:35.713546 [info ]: Started scheduling
+04:30:35.713610 [info ]: Finished scheduling [  0.00s]
+04:30:35.713619 [debug]: Compilation - 1 nodes selected: {"model.openf1_dbt.fct_car_telemetry"}
+04:30:35.832256 [info ]: Started building task graph
+04:30:35.832300 [info ]: Finished building task graph [  0.00s]
+04:30:35.832393 [info ]: Started rendering (1 nodes)
+04:30:35.832406 [info ]: Started model marts.fct_car_telemetry
+04:30:35.832415 [debug]: Started rendering model marts.fct_car_telemetry
+04:30:35.832743 [debug]: Compiled SQL for node model.openf1_dbt.fct_car_telemetry at target\.lsp\compiled\models\marts\fct_car_telemetry.sql
+04:30:35.832803 [debug]: Finished rendering [  0.00s] model marts.fct_car_telemetry [success]
+04:30:35.832815 [info ]: Finished rendering [  0.00s] (1 nodes, 0 skipped, 0 errors)
+04:30:35.832827 [info ]: Started analyzing (1 nodes)
+04:30:35.832831 [debug]: Started analyzing model marts.fct_car_telemetry
+04:30:35.833204 [info ]:  Succeeded [-------] model marts.fct_car_telemetry (table)
+04:30:35.833217 [debug]: Finished analyzing [  0.00s] model marts.fct_car_telemetry [success]
+04:30:35.833222 [info ]: Finished analyzing [  0.00s] (1 nodes, 0 skipped, 0 errors)
+04:30:35.835660 [info ]: Started scheduling
+04:30:35.835701 [info ]: Finished scheduling [  0.00s]
+04:30:35.837663 [info ]: Cached model count updated: 13 models (accurate)
+04:30:37.402312 [info ]: Started loading project
+04:30:37.402705 [info ]: Loading ~/.dbt/profiles.yml
+04:30:37.407529 [info ]: Started parsing
+04:30:37.428177 [info ]: Finished loading project [  0.03s]
+04:30:37.430247 [info ]: Finished parsing [  0.02s]
+04:30:37.431506 [info ]: Cached model count updated: 13 models (estimate)
+04:30:37.431520 [info ]: Cached model count updated: 13 models (accurate)
+04:30:37.431547 [info ]: Started scheduling
+04:30:37.431583 [info ]: Finished scheduling [  0.00s]
+04:30:37.431596 [info ]: Started scheduling
+04:30:37.431659 [info ]: Finished scheduling [  0.00s]
+04:30:37.431668 [debug]: Compilation - 9 nodes selected: {"model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.fct_starting_grid", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location", "model.openf1_dbt.stg_openf1__starting_grid"}
+04:30:37.551526 [info ]: Started building task graph
+04:30:37.551612 [info ]: Finished building task graph [  0.00s]
+04:30:37.551727 [info ]: Started rendering (9 nodes)
+04:30:37.551741 [info ]: Started model marts.fct_starting_grid
+04:30:37.551749 [debug]: Started rendering model marts.fct_starting_grid
+04:30:37.551766 [info ]: Started model intermediate.int_starting_grid__enriched
+04:30:37.551772 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+04:30:37.551780 [info ]: Started model staging.stg_openf1__starting_grid
+04:30:37.551784 [debug]: Started rendering model staging.stg_openf1__starting_grid
+04:30:37.551790 [info ]: Started model marts.fct_race_replay
+04:30:37.551794 [debug]: Started rendering model marts.fct_race_replay
+04:30:37.551800 [info ]: Started model intermediate.int_location__enriched
+04:30:37.551808 [debug]: Started rendering model intermediate.int_location__enriched
+04:30:37.551836 [info ]: Started model staging.stg_openf1__location
+04:30:37.551839 [debug]: Started rendering model staging.stg_openf1__location
+04:30:37.551845 [info ]: Started model marts.fct_laps
+04:30:37.551851 [debug]: Started rendering model marts.fct_laps
+04:30:37.551858 [info ]: Started model intermediate.int_laps__enriched
+04:30:37.551864 [debug]: Started rendering model intermediate.int_laps__enriched
+04:30:37.551872 [info ]: Started model staging.stg_openf1__laps
+04:30:37.551878 [debug]: Started rendering model staging.stg_openf1__laps
+04:30:37.555174 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__starting_grid at target\.lsp\compiled\models\staging\stg_openf1__starting_grid.sql
+04:30:37.555257 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__laps at target\.lsp\compiled\models\staging\stg_openf1__laps.sql
+04:30:37.555282 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__location at target\.lsp\compiled\models\staging\stg_openf1__location.sql
+04:30:37.555340 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:30:37.555383 [info ]: Started analyzing (9 nodes)
+04:30:37.555427 [debug]: Started analyzing model staging.stg_openf1__starting_grid
+04:30:37.555463 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__location [success]
+04:30:37.555503 [debug]: Started analyzing model staging.stg_openf1__location
+04:30:37.555545 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__laps [success]
+04:30:37.555571 [debug]: Started analyzing model staging.stg_openf1__laps
+04:30:37.555614 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+04:30:37.555639 [debug]: Compiled SQL for node model.openf1_dbt.int_location__enriched at target\.lsp\compiled\models\intermediate\int_location__enriched.sql
+04:30:37.555649 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+04:30:37.555652 [debug]: Compiled SQL for node model.openf1_dbt.fct_race_replay at target\.lsp\compiled\models\marts\fct_race_replay.sql
+04:30:37.555689 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__location (view)
+04:30:37.555701 [debug]: Compiled SQL for node model.openf1_dbt.fct_laps at target\.lsp\compiled\models\marts\fct_laps.sql
+04:30:37.555711 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__location [success]
+04:30:37.555726 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__starting_grid (view)
+04:30:37.555732 [debug]: Compiled SQL for node model.openf1_dbt.int_laps__enriched at target\.lsp\compiled\models\intermediate\int_laps__enriched.sql
+04:30:37.555736 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:30:37.555747 [debug]: Finished rendering [  0.00s] model marts.fct_starting_grid [success]
+04:30:37.555757 [debug]: Started analyzing model marts.fct_starting_grid
+04:30:37.555775 [debug]: Finished rendering [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:30:37.555789 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+04:30:37.555802 [debug]: Finished rendering [  0.00s] model marts.fct_race_replay [success]
+04:30:37.555812 [debug]: Started analyzing model marts.fct_race_replay
+04:30:37.555827 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__laps (view)
+04:30:37.555838 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__laps [success]
+04:30:37.555847 [debug]: Finished rendering [  0.00s] model intermediate.int_location__enriched [success]
+04:30:37.555856 [debug]: Started analyzing model intermediate.int_location__enriched
+04:30:37.555869 [debug]: Finished rendering [  0.00s] model marts.fct_laps [success]
+04:30:37.555876 [debug]: Started analyzing model marts.fct_laps
+04:30:37.555890 [debug]: Finished rendering [  0.00s] model intermediate.int_laps__enriched [success]
+04:30:37.555896 [info ]: Finished rendering [  0.00s] (9 nodes, 0 skipped, 0 errors)
+04:30:37.555904 [debug]: Started analyzing model intermediate.int_laps__enriched
+04:30:37.555919 [info ]:  Succeeded [  0.00s] model marts.fct_starting_grid (table)
+04:30:37.555929 [debug]: Finished analyzing [  0.00s] model marts.fct_starting_grid [success]
+04:30:37.555961 [info ]:  Succeeded [  0.00s] model marts.fct_race_replay (table)
+04:30:37.555983 [debug]: Finished analyzing [  0.00s] model marts.fct_race_replay [success]
+04:30:37.556051 [info ]:  Succeeded [  0.00s] model marts.fct_laps (table)
+04:30:37.556075 [debug]: Finished analyzing [  0.00s] model marts.fct_laps [success]
+04:30:37.556206 [info ]:  Succeeded [  0.00s] model intermediate.int_location__enriched (view)
+04:30:37.556225 [debug]: Finished analyzing [  0.00s] model intermediate.int_location__enriched [success]
+04:30:37.556236 [info ]:  Succeeded [  0.00s] model intermediate.int_starting_grid__enriched (view)
+04:30:37.556247 [debug]: Finished analyzing [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:30:37.556363 [info ]:  Succeeded [  0.00s] model intermediate.int_laps__enriched (view)
+04:30:37.556391 [debug]: Finished analyzing [  0.00s] model intermediate.int_laps__enriched [success]
+04:30:37.556401 [info ]: Finished analyzing [  0.00s] (9 nodes, 0 skipped, 0 errors)
+04:30:37.559200 [info ]: Started scheduling
+04:30:37.559249 [info ]: Finished scheduling [  0.00s]
+04:30:37.561399 [info ]: Cached model count updated: 13 models (accurate)
+04:31:48.058662 [info ]: Started loading project
+04:31:48.059141 [info ]: Loading ~/.dbt/profiles.yml
+04:31:48.062147 [info ]: Started loading project
+04:31:48.062458 [info ]: Loading ~/.dbt/profiles.yml
+04:31:48.062483 [info ]: Finished loading project [  0.00s]
+04:31:48.066408 [info ]:    Started resolving packages from packages.yml
+04:31:48.171691 [info ]:   Finished [  0.11s] resolving packages from packages.yml (1 items)
+04:31:48.171839 [debug]:    Started loading packages
+04:31:48.176828 [debug]:     Loaded [  0.00s] packages
+04:31:48.177266 [info ]: Finished loading project [  0.12s]
+04:31:48.177460 [info ]: Started parsing
+04:31:48.203304 [debug]: Finished parsing models\marts\marts.yml [  0.00s]
+04:31:48.203464 [debug]: Finished parsing models\staging\sources.yml [  0.00s]
+04:31:48.204763 [debug]: Finished parsing models\intermediate\int_laps__enriched.sql [  0.00s]
+04:31:48.205155 [debug]: Finished parsing models\intermediate\int_location__enriched.sql [  0.00s]
+04:31:48.205528 [debug]: Finished parsing models\intermediate\int_starting_grid__enriched.sql [  0.00s]
+04:31:48.205811 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.00s]
+04:31:48.206129 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:31:48.206392 [debug]: Finished parsing models\marts\fct_laps.sql [  0.00s]
+04:31:48.206664 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.00s]
+04:31:48.206981 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.00s]
+04:31:48.207252 [debug]: Finished parsing models\staging\stg_openf1__car_data.sql [  0.00s]
+04:31:48.207530 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.00s]
+04:31:48.207851 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.00s]
+04:31:48.208134 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.00s]
+04:31:48.211435 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.00s]
+04:31:48.212265 [info ]: Finished parsing [  0.03s]
+04:31:48.212818 [info ]: Cached model count updated: 13 models (estimate)
+04:31:48.212830 [info ]: Cached model count updated: 13 models (accurate)
+04:31:48.212860 [info ]: Started scheduling
+04:31:48.212898 [info ]: Finished scheduling [  0.00s]
+04:31:48.212907 [debug]: Compilation - 0 nodes selected: {}
+04:31:48.212916 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:31:48.212921 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:31:48.212926 [info ]: Started scheduling
+04:31:48.213009 [info ]: Finished scheduling [  0.00s]
+04:31:48.213053 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "starting_grid" }) and interval: None
+04:31:48.213109 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "car_data" }) and interval: None
+04:31:48.213150 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "drivers" }) and interval: None
+04:31:48.213187 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "location" }) and interval: None
+04:31:48.213216 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "laps" }) and interval: None
+04:31:48.335885 [info ]: Started building task graph
+04:31:48.335913 [info ]: Finished building task graph [  0.00s]
+04:31:48.338472 [info ]: Started scheduling
+04:31:48.338512 [info ]: Finished scheduling [  0.00s]
+04:31:48.340735 [info ]: Cached model count updated: 13 models (accurate)
+04:31:49.932774 [info ]: Started loading project
+04:31:49.933251 [info ]: Loading ~/.dbt/profiles.yml
+04:31:49.937309 [info ]: Started parsing
+04:31:49.952179 [info ]: Finished loading project [  0.02s]
+04:31:49.954243 [info ]: Finished parsing [  0.02s]
+04:31:49.955380 [info ]: Cached model count updated: 13 models (estimate)
+04:31:49.955391 [info ]: Cached model count updated: 13 models (accurate)
+04:31:49.955416 [info ]: Started scheduling
+04:31:49.955448 [info ]: Finished scheduling [  0.00s]
+04:31:49.955457 [info ]: Started scheduling
+04:31:49.955533 [info ]: Finished scheduling [  0.00s]
+04:31:49.955542 [debug]: Compilation - 13 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_car_telemetry", "model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.fct_starting_grid", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__car_data", "model.openf1_dbt.stg_openf1__drivers", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location", "model.openf1_dbt.stg_openf1__starting_grid"}
+04:31:50.077343 [info ]: Started building task graph
+04:31:50.077455 [info ]: Finished building task graph [  0.00s]
+04:31:50.081843 [info ]: Cached model count updated: 13 models (accurate)
+04:31:50.083195 [info ]: Waiting for lease on 'target' directory
+04:31:50.522481 [info ]: Cached model count updated: 13 models (accurate)
+04:31:50.523551 [info ]: Waiting for lease on 'target' directory
+04:31:51.087945 [info ]: Started loading project
+04:31:51.088348 [info ]: Loading ~/.dbt/profiles.yml
+04:31:51.091419 [info ]: Started loading project
+04:31:51.091753 [info ]: Loading ~/.dbt/profiles.yml
+04:31:51.091774 [info ]: Finished loading project [  0.00s]
+04:31:51.095900 [info ]:    Started resolving packages from packages.yml
+04:31:51.191594 [info ]:   Finished [  0.10s] resolving packages from packages.yml (1 items)
+04:31:51.191734 [debug]:    Started loading packages
+04:31:51.196573 [debug]:     Loaded [  0.00s] packages
+04:31:51.196991 [info ]: Finished loading project [  0.11s]
+04:31:51.197165 [info ]: Started parsing
+04:31:51.225739 [debug]: Finished parsing models\marts\marts.yml [  0.00s]
+04:31:51.225898 [debug]: Finished parsing models\staging\sources.yml [  0.00s]
+04:31:51.227084 [debug]: Finished parsing models\intermediate\int_laps__enriched.sql [  0.00s]
+04:31:51.227532 [debug]: Finished parsing models\intermediate\int_location__enriched.sql [  0.00s]
+04:31:51.227903 [debug]: Finished parsing models\intermediate\int_starting_grid__enriched.sql [  0.00s]
+04:31:51.228198 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.00s]
+04:31:51.228494 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:31:51.228785 [debug]: Finished parsing models\marts\fct_laps.sql [  0.00s]
+04:31:51.229057 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.00s]
+04:31:51.229387 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.00s]
+04:31:51.229707 [debug]: Finished parsing models\staging\stg_openf1__car_data.sql [  0.00s]
+04:31:51.229966 [debug]: Finished parsing models\staging\stg_openf1__drivers.sql [  0.00s]
+04:31:51.230282 [debug]: Finished parsing models\staging\stg_openf1__laps.sql [  0.00s]
+04:31:51.230634 [debug]: Finished parsing models\staging\stg_openf1__location.sql [  0.00s]
+04:31:51.233998 [debug]: Finished parsing models\staging\stg_openf1__starting_grid.sql [  0.00s]
+04:31:51.234839 [info ]: Finished parsing [  0.04s]
+04:31:51.235366 [info ]: Cached model count updated: 13 models (estimate)
+04:31:51.235377 [info ]: Cached model count updated: 13 models (accurate)
+04:31:51.235400 [info ]: Started scheduling
+04:31:51.235439 [info ]: Finished scheduling [  0.00s]
+04:31:51.235448 [debug]: Compilation - 0 nodes selected: {}
+04:31:51.235455 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:31:51.235460 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:31:51.235464 [info ]: Started scheduling
+04:31:51.235543 [info ]: Finished scheduling [  0.00s]
+04:31:51.235577 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "starting_grid" }) and interval: None
+04:31:51.235620 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "laps" }) and interval: None
+04:31:51.235648 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "car_data" }) and interval: None
+04:31:51.235678 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "drivers" }) and interval: None
+04:31:51.235703 [debug]: Initializing schema store with entry: Frontier(CanonicalFqn { catalog: "openf1-pipeline", schema: "raw", table: "location" }) and interval: None
+04:31:51.354819 [info ]: Started building task graph
+04:31:51.354846 [info ]: Finished building task graph [  0.00s]
+04:31:51.357330 [info ]: Started scheduling
+04:31:51.357373 [info ]: Finished scheduling [  0.00s]
+04:31:51.357782 [info ]: Cached model count updated: 13 models (accurate)
+04:31:52.913319 [info ]: Started loading project
+04:31:52.914007 [info ]: Loading ~/.dbt/profiles.yml
+04:31:52.918024 [info ]: Started parsing
+04:31:52.933148 [info ]: Finished loading project [  0.02s]
+04:31:52.935509 [info ]: Finished parsing [  0.02s]
+04:31:52.936813 [info ]: Cached model count updated: 13 models (estimate)
+04:31:52.936825 [info ]: Cached model count updated: 13 models (accurate)
+04:31:52.936849 [info ]: Started scheduling
+04:31:52.936882 [info ]: Finished scheduling [  0.00s]
+04:31:52.936892 [info ]: Started scheduling
+04:31:52.936967 [info ]: Finished scheduling [  0.00s]
+04:31:52.936975 [debug]: Compilation - 13 nodes selected: {"model.openf1_dbt.dim_drivers", "model.openf1_dbt.fct_car_telemetry", "model.openf1_dbt.fct_laps", "model.openf1_dbt.fct_race_replay", "model.openf1_dbt.fct_starting_grid", "model.openf1_dbt.int_laps__enriched", "model.openf1_dbt.int_location__enriched", "model.openf1_dbt.int_starting_grid__enriched", "model.openf1_dbt.stg_openf1__car_data", "model.openf1_dbt.stg_openf1__drivers", "model.openf1_dbt.stg_openf1__laps", "model.openf1_dbt.stg_openf1__location", "model.openf1_dbt.stg_openf1__starting_grid"}
+04:31:53.055613 [info ]: Started building task graph
+04:31:53.055705 [info ]: Finished building task graph [  0.00s]
+04:31:53.055880 [info ]: Started rendering (13 nodes)
+04:31:53.055893 [info ]: Started model marts.fct_starting_grid
+04:31:53.055903 [debug]: Started rendering model marts.fct_starting_grid
+04:31:53.055918 [info ]: Started model intermediate.int_starting_grid__enriched
+04:31:53.055924 [debug]: Started rendering model intermediate.int_starting_grid__enriched
+04:31:53.055930 [info ]: Started model staging.stg_openf1__starting_grid
+04:31:53.055935 [debug]: Started rendering model staging.stg_openf1__starting_grid
+04:31:53.055941 [info ]: Started model marts.fct_race_replay
+04:31:53.055945 [debug]: Started rendering model marts.fct_race_replay
+04:31:53.055951 [info ]: Started model intermediate.int_location__enriched
+04:31:53.055956 [debug]: Started rendering model intermediate.int_location__enriched
+04:31:53.055961 [info ]: Started model staging.stg_openf1__location
+04:31:53.055965 [debug]: Started rendering model staging.stg_openf1__location
+04:31:53.055970 [info ]: Started model marts.fct_laps
+04:31:53.055975 [debug]: Started rendering model marts.fct_laps
+04:31:53.055981 [info ]: Started model intermediate.int_laps__enriched
+04:31:53.055986 [debug]: Started rendering model intermediate.int_laps__enriched
+04:31:53.055998 [info ]: Started model staging.stg_openf1__laps
+04:31:53.056004 [debug]: Started rendering model staging.stg_openf1__laps
+04:31:53.056035 [info ]: Started model marts.fct_car_telemetry
+04:31:53.056039 [debug]: Started rendering model marts.fct_car_telemetry
+04:31:53.056043 [info ]: Started model staging.stg_openf1__car_data
+04:31:53.056047 [debug]: Started rendering model staging.stg_openf1__car_data
+04:31:53.056052 [info ]: Started model marts.dim_drivers
+04:31:53.056055 [debug]: Started rendering model marts.dim_drivers
+04:31:53.056061 [info ]: Started model staging.stg_openf1__drivers
+04:31:53.056064 [debug]: Started rendering model staging.stg_openf1__drivers
+04:31:53.057170 [debug]: Compiled SQL for node model.openf1_dbt.fct_starting_grid at target\.lsp\compiled\models\marts\fct_starting_grid.sql
+04:31:53.057244 [debug]: Finished rendering [  0.00s] model marts.fct_starting_grid [success]
+04:31:53.057267 [info ]: Started analyzing (13 nodes)
+04:31:53.057276 [debug]: Started analyzing model marts.fct_starting_grid
+04:31:53.057416 [info ]:  Succeeded [  0.00s] model marts.fct_starting_grid (table)
+04:31:53.057430 [debug]: Finished analyzing [  0.00s] model marts.fct_starting_grid [success]
+04:31:53.057488 [debug]: Compiled SQL for node model.openf1_dbt.int_location__enriched at target\.lsp\compiled\models\intermediate\int_location__enriched.sql
+04:31:53.057570 [debug]: Finished rendering [  0.00s] model intermediate.int_location__enriched [success]
+04:31:53.057587 [debug]: Started analyzing model intermediate.int_location__enriched
+04:31:53.057613 [debug]: Compiled SQL for node model.openf1_dbt.int_starting_grid__enriched at target\.lsp\compiled\models\intermediate\int_starting_grid__enriched.sql
+04:31:53.057688 [debug]: Finished rendering [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:31:53.057715 [debug]: Started analyzing model intermediate.int_starting_grid__enriched
+04:31:53.057983 [info ]:  Succeeded [  0.00s] model intermediate.int_location__enriched (view)
+04:31:53.058005 [debug]: Finished analyzing [  0.00s] model intermediate.int_location__enriched [success]
+04:31:53.058095 [info ]:  Succeeded [  0.00s] model intermediate.int_starting_grid__enriched (view)
+04:31:53.058117 [debug]: Finished analyzing [  0.00s] model intermediate.int_starting_grid__enriched [success]
+04:31:53.058783 [debug]: Compiled SQL for node model.openf1_dbt.int_laps__enriched at target\.lsp\compiled\models\intermediate\int_laps__enriched.sql
+04:31:53.058893 [debug]: Finished rendering [  0.00s] model intermediate.int_laps__enriched [success]
+04:31:53.058924 [debug]: Started analyzing model intermediate.int_laps__enriched
+04:31:53.059153 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__location at target\.lsp\compiled\models\staging\stg_openf1__location.sql
+04:31:53.059223 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__starting_grid at target\.lsp\compiled\models\staging\stg_openf1__starting_grid.sql
+04:31:53.059240 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__location [success]
+04:31:53.059267 [debug]: Started analyzing model staging.stg_openf1__location
+04:31:53.059264 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__drivers at target\.lsp\compiled\models\staging\stg_openf1__drivers.sql
+04:31:53.059304 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:31:53.059327 [debug]: Started analyzing model staging.stg_openf1__starting_grid
+04:31:53.059373 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__drivers [success]
+04:31:53.059393 [debug]: Started analyzing model staging.stg_openf1__drivers
+04:31:53.059423 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__location (view)
+04:31:53.059442 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__location [success]
+04:31:53.059454 [info ]:  Succeeded [  0.00s] model intermediate.int_laps__enriched (view)
+04:31:53.059462 [debug]: Finished analyzing [  0.00s] model intermediate.int_laps__enriched [success]
+04:31:53.059469 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__starting_grid (view)
+04:31:53.059476 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__starting_grid [success]
+04:31:53.059543 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__drivers (view)
+04:31:53.059562 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__drivers [success]
+04:31:53.059730 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__car_data at target\.lsp\compiled\models\staging\stg_openf1__car_data.sql
+04:31:53.059739 [debug]: Compiled SQL for node model.openf1_dbt.fct_race_replay at target\.lsp\compiled\models\marts\fct_race_replay.sql
+04:31:53.059804 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__car_data [success]
+04:31:53.059823 [debug]: Started analyzing model staging.stg_openf1__car_data
+04:31:53.059827 [debug]: Compiled SQL for node model.openf1_dbt.stg_openf1__laps at target\.lsp\compiled\models\staging\stg_openf1__laps.sql
+04:31:53.059842 [debug]: Finished rendering [  0.00s] model marts.fct_race_replay [success]
+04:31:53.059853 [debug]: Started analyzing model marts.fct_race_replay
+04:31:53.059871 [debug]: Finished rendering [  0.00s] model staging.stg_openf1__laps [success]
+04:31:53.059870 [debug]: Compiled SQL for node model.openf1_dbt.fct_laps at target\.lsp\compiled\models\marts\fct_laps.sql
+04:31:53.059878 [debug]: Started analyzing model staging.stg_openf1__laps
+04:31:53.059880 [debug]: Compiled SQL for node model.openf1_dbt.dim_drivers at target\.lsp\compiled\models\marts\dim_drivers.sql
+04:31:53.059945 [debug]: Compiled SQL for node model.openf1_dbt.fct_car_telemetry at target\.lsp\compiled\models\marts\fct_car_telemetry.sql
+04:31:53.059971 [debug]: Finished rendering [  0.00s] model marts.fct_laps [success]
+04:31:53.059994 [debug]: Started analyzing model marts.fct_laps
+04:31:53.060017 [debug]: Finished rendering [  0.00s] model marts.dim_drivers [success]
+04:31:53.060029 [debug]: Started analyzing model marts.dim_drivers
+04:31:53.060045 [debug]: Finished rendering [  0.00s] model marts.fct_car_telemetry [success]
+04:31:53.060055 [info ]: Finished rendering [  0.00s] (13 nodes, 0 skipped, 0 errors)
+04:31:53.060064 [debug]: Started analyzing model marts.fct_car_telemetry
+04:31:53.060082 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__laps (view)
+04:31:53.060096 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__laps [success]
+04:31:53.060106 [info ]:  Succeeded [  0.00s] model staging.stg_openf1__car_data (view)
+04:31:53.060116 [debug]: Finished analyzing [  0.00s] model staging.stg_openf1__car_data [success]
+04:31:53.060123 [info ]:  Succeeded [  0.00s] model marts.fct_race_replay (table)
+04:31:53.060131 [debug]: Finished analyzing [  0.00s] model marts.fct_race_replay [success]
+04:31:53.060136 [info ]:  Succeeded [  0.00s] model marts.fct_laps (table)
+04:31:53.060141 [debug]: Finished analyzing [  0.00s] model marts.fct_laps [success]
+04:31:53.060146 [info ]:  Succeeded [  0.00s] model marts.dim_drivers (table)
+04:31:53.060153 [debug]: Finished analyzing [  0.00s] model marts.dim_drivers [success]
+04:31:53.060346 [info ]:  Succeeded [  0.00s] model marts.fct_car_telemetry (table)
+04:31:53.060364 [debug]: Finished analyzing [  0.00s] model marts.fct_car_telemetry [success]
+04:31:53.060372 [info ]: Finished analyzing [  0.00s] (13 nodes, 0 skipped, 0 errors)
+04:31:53.062942 [info ]: Started scheduling
+04:31:53.062990 [info ]: Finished scheduling [  0.00s]
+04:31:53.064217 [info ]: Cached model count updated: 13 models (accurate)
+04:32:08.427837 [info ]: Started loading project
+04:32:08.428323 [info ]: Loading ~/.dbt/profiles.yml
+04:32:08.439178 [info ]: Started parsing
+04:32:08.453615 [info ]: Finished loading project [  0.03s]
+04:32:08.454291 [debug]: Finished parsing models\marts\marts.yml [  0.00s]
+04:32:08.455831 [debug]: Finished parsing models\marts\dim_drivers.sql [  0.00s]
+04:32:08.456232 [debug]: Finished parsing models\marts\fct_car_telemetry.sql [  0.00s]
+04:32:08.456606 [debug]: Finished parsing models\marts\fct_laps.sql [  0.00s]
+04:32:08.456911 [debug]: Finished parsing models\marts\fct_race_replay.sql [  0.00s]
+04:32:08.458781 [debug]: Finished parsing models\marts\fct_starting_grid.sql [  0.00s]
+04:32:08.459536 [info ]: Finished parsing [  0.02s]
+04:32:08.460728 [info ]: Cached model count updated: 13 models (estimate)
+04:32:08.460739 [info ]: Cached model count updated: 13 models (accurate)
+04:32:08.460767 [info ]: Started scheduling
+04:32:08.460799 [info ]: Finished scheduling [  0.00s]
+04:32:08.460808 [debug]: Compilation - 0 nodes selected: {}
+04:32:08.460815 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:32:08.460818 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:32:08.578993 [info ]: Started building task graph
+04:32:08.579020 [info ]: Finished building task graph [  0.00s]
+04:32:08.581483 [info ]: Started scheduling
+04:32:08.581525 [info ]: Finished scheduling [  0.00s]
+04:32:08.582005 [info ]: Cached model count updated: 13 models (accurate)
+04:32:08.757720 [info ]: Waiting for lease on 'target' directory
+04:32:08.985917 [info ]: Started loading project
+04:32:08.986342 [info ]: Loading ~/.dbt/profiles.yml
+04:32:08.990277 [info ]: Started parsing
+04:32:09.004698 [info ]: Finished loading project [  0.02s]
+04:32:09.006852 [info ]: Finished parsing [  0.02s]
+04:32:09.008081 [info ]: Cached model count updated: 13 models (estimate)
+04:32:09.008094 [info ]: Cached model count updated: 13 models (accurate)
+04:32:09.008121 [info ]: Started scheduling
+04:32:09.008155 [info ]: Finished scheduling [  0.00s]
+04:32:09.008164 [debug]: Compilation - 0 nodes selected: {}
+04:32:09.008172 [warn ]: dbt1600: The selection criterion '' does not match any enabled nodes
+04:32:09.008177 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:32:09.131936 [info ]: Started building task graph
+04:32:09.131963 [info ]: Finished building task graph [  0.00s]
+04:32:09.134171 [info ]: Started scheduling
+04:32:09.134215 [info ]: Finished scheduling [  0.00s]
+04:32:09.136303 [info ]: Cached model count updated: 13 models (accurate)
+04:32:10.690917 [info ]: Started loading project
+04:32:10.691486 [info ]: Loading ~/.dbt/profiles.yml
+04:32:10.697247 [info ]: Started parsing
+04:32:10.718946 [info ]: Finished loading project [  0.03s]
+04:32:10.722104 [info ]: Finished parsing [  0.02s]
+04:32:10.723620 [info ]: Cached model count updated: 13 models (estimate)
+04:32:10.723637 [info ]: Cached model count updated: 13 models (accurate)
+04:32:10.723678 [info ]: Started scheduling
+04:32:10.723726 [info ]: Finished scheduling [  0.00s]
+04:32:10.723745 [info ]: Started scheduling
+04:32:10.723779 [info ]: Finished scheduling [  0.00s]
+04:32:10.723789 [debug]: Compilation - 0 nodes selected: {}
+04:32:10.723799 [warn ]: dbt1601: Nothing to do. Try checking your model configs and model specification args
+04:32:10.868846 [info ]: Started building task graph
+04:32:10.868877 [info ]: Finished building task graph [  0.00s]
+04:32:10.871174 [info ]: Started scheduling
+04:32:10.871220 [info ]: Finished scheduling [  0.00s]
+04:32:10.873208 [info ]: Cached model count updated: 13 models (accurate)
