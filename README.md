@@ -81,7 +81,7 @@ raw/meetings={meeting_key}/session={session_key}/{endpoint}.json
 
 dbt Core runs in a Python 3.12 virtual environment against the BigQuery adapter. The medallion layers are:
 
-**Staging** (views) — light cleaning and renaming of raw tables. One model per source table, no business logic.
+**Staging** (views): light cleaning and renaming of raw tables. One model per source table, no business logic.
 
 ```
 stg_openf1__drivers
@@ -91,7 +91,7 @@ stg_openf1__starting_grid
 stg_openf1__car_data
 ```
 
-**Intermediate** (views) — enrich with driver context. One design decision worth noting: `starting_grid` uses the qualifying `session_key`, not the race `session_key`, so the intermediate model joins on `meeting_key + driver_number` only to avoid a broken join.
+**Intermediate** (views): enrich with driver context. One design decision worth noting: `starting_grid` uses the qualifying `session_key`, not the race `session_key`, so the intermediate model joins on `meeting_key + driver_number` only to avoid a broken join.
 
 ```
 int_location__enriched
@@ -99,7 +99,7 @@ int_laps__enriched
 int_starting_grid__enriched
 ```
 
-**Marts** (tables) — final serving layer, materialised as tables for query performance.
+**Marts** (tables) : final serving layer, materialised as tables for query performance.
 
 ```
 dim_drivers           one row per driver, attributes and team info
@@ -122,7 +122,7 @@ valid_drs                 drs values must match known OpenF1 states
 brake_throttle_combination  flags sustained simultaneous extreme brake and throttle
 ```
 
-The thresholds are intentionally permissive of known sensor behaviour — for example OpenF1 encodes full braking as 104 rather than 100, so the brake ceiling is set to 105 rather than 100 to avoid false positives while still catching genuinely corrupt values.
+The thresholds are intentionally permissive of known sensor behaviour : for example OpenF1 encodes full braking as 104 rather than 100, so the brake ceiling is set to 105 rather than 100 to avoid false positives while still catching genuinely corrupt values.
 
 ### Serving
 
@@ -208,14 +208,14 @@ airflow dags trigger ingestion_dag --conf '{"meeting_key": 1281}'
 
 ## Known Limitations
 
-**Location coordinate precision** — OpenF1's `/location` endpoint returns x/y coordinates that approximate track position but lack lateral placement precision. Cars on the inside and outside of a corner appear at the same point. This is an upstream API limitation.
+**Location coordinate precision**: OpenF1's `/location` endpoint returns x/y coordinates that approximate track position but lack lateral placement precision. Cars on the inside and outside of a corner appear at the same point. This is an upstream API limitation.
 
-**Local deployment** — Airflow runs on Docker Desktop on a local Windows machine. Migration to Oracle Cloud Free Tier is planned once the core pipeline is stable.
+**Local deployment**: Airflow runs on Docker Desktop on a local Windows machine. Migration to Oracle Cloud Free Tier is planned once the core pipeline is stable.
 
-**Real-time playback speed** — the race replay runs at 1:1 speed. Configurable playback speed is on the roadmap.
+**Real-time playback speed**: the race replay runs at 1:1 speed. Configurable playback speed is on the roadmap.
 
-**Cancelled race handling** — the pipeline ingests metadata for all scheduled races including cancelled ones. The Streamlit app filters these out by checking for the presence of location data, but the raw and staging layers will still contain partial data for cancelled events.
+**Cancelled race handling**: the pipeline ingests metadata for all scheduled races including cancelled ones. The Streamlit app filters these out by checking for the presence of location data, but the raw and staging layers will still contain partial data for cancelled events.
 
 ## Related
 
-[Streamlit app repo](https://github.com/tnickster/streamlit-f1-app) — [Live app](#) — [OpenF1 API docs](https://openf1.org)
+[Streamlit app repo](https://github.com/tnickster/streamlit-f1-app) [Live app](#): [OpenF1 API docs](https://openf1.org)
